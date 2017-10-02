@@ -1,0 +1,61 @@
+.container{
+	width: 98%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+header, footer {
+	padding: 1em;
+	clear: both;
+	text-align: center;
+}
+
+.onecol {
+  float: center;
+	text-align: center;
+}
+
+.onecolsurvey {
+  float: center;
+	text-align: left;
+}
+
+.twocol {
+	float: left;
+	width: 46%;
+	text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+.topleft {
+  float: middle;
+  width: 25%;
+  text-align: left;
+  margin: 5%;
+}
+
+.topright {
+  float: middle;
+  width: 25%;
+  text-align: left;
+  margin: 5%;
+}
+
+.bottomleft {
+  float: middle;
+  width: 25%;
+  text-align: left;
+  margin: 5%;
+}
+
+.bottomright {
+  float: middle;
+  width: 25%;
+  text-align: left;
+  margin: 5%;
+}
