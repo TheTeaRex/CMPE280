@@ -3,8 +3,9 @@
   <head>
     <title>Video Question</title>
     <link rel='stylesheet' type='text/css' href='mystyle.css'>
+    <script src='script.js'></script>
   </head>
-  <body>
+  <body onLoad='setHiddenValues()'>
     <div class=container>
       <header>
         <h1>
@@ -25,23 +26,26 @@
             </label>
 
             <label class=topright>
-              <input type='radio' name='video' value='2'>data.gov
+              <input type='radio' name='video' value='0'>data.gov
             </label>
 
             <br>
             <br>
 
             <label class=bottomleft>
-              <input type='radio' name='video' value='3'>facebook.com
+              <input type='radio' name='video' value='0'>facebook.com
             </label>
 
             <label class=bottomright>
-              <input type='radio' name='video' value='4'>xyz.net
+              <input type='radio' name='video' value='0'>xyz.net
             </label>
 
             <br>
             <br>
 
+            <input type='hidden' name='quantitative' id='quantitative' value='0'>
+            <input type='hidden' name='reading' id='reading' value='0'>
+            <input type='hidden' name='videoaudio' id='videoaudio' value='0'>
             <button type='submit'>Save &amp; Next Question</button>
             <button type='reset'>Canel &amp; Clear Selection</button>
           </div>

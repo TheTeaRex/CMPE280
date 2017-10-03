@@ -3,8 +3,9 @@
   <head>
     <title>Cosine Question</title>
 		<link rel='stylesheet' type='text/css' href='mystyle.css'>
+    <script src='script.js'></script>
   </head>
-  <body>
+  <body onLoad='setHiddenValues()'>
 		<div class=container>
 			<header>
 				<h1>
@@ -25,23 +26,26 @@
             </label>
 
             <label class=topright>
-              <input type='radio' name='cosine' value='2'><math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mfenced><mrow><mi>&#x3B1;</mi><mo>&#xB1;</mo><mi>&#x3B2;</mi></mrow></mfenced><mo>=</mo><mi>sin</mi><mi>&#x3B1;</mi><mi>sin</mi><mi>&#x3B2;</mi><mo>&#xB1;</mo><mi>cos</mi><mi>&#x3B1;</mi><mi>cos</mi><mi>&#x3B2;</mi></math>
+              <input type='radio' name='cosine' value='0'><math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mfenced><mrow><mi>&#x3B1;</mi><mo>&#xB1;</mo><mi>&#x3B2;</mi></mrow></mfenced><mo>=</mo><mi>sin</mi><mi>&#x3B1;</mi><mi>sin</mi><mi>&#x3B2;</mi><mo>&#xB1;</mo><mi>cos</mi><mi>&#x3B1;</mi><mi>cos</mi><mi>&#x3B2;</mi></math>
             </label>
 
             <br>
             <br>
 
             <label class=bottomleft>
-              <input type='radio' name='cosine' value='3'><math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mi>&#x3B1;</mi><mo>+</mo><mi>sin</mi><mi>&#x3B2;</mi><mo>=</mo><mn>2</mn><mi>sin</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced><mi>cos</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>-</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced></math>
+              <input type='radio' name='cosine' value='0'><math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mi>&#x3B1;</mi><mo>+</mo><mi>sin</mi><mi>&#x3B2;</mi><mo>=</mo><mn>2</mn><mi>sin</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced><mi>cos</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>-</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced></math>
             </label>
 
             <label class=bottomright>
-              <input type='radio' name='cosine' value='4'><math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mi>&#x3B1;</mi><mo>-</mo><mi>sin</mi><mi>&#x3B2;</mi><mo>=</mo><mn>2</mn><mi>cos</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced><mi>sin</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>-</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced></math>
+              <input type='radio' name='cosine' value='0'><math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mi>&#x3B1;</mi><mo>-</mo><mi>sin</mi><mi>&#x3B2;</mi><mo>=</mo><mn>2</mn><mi>cos</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced><mi>sin</mi><mfenced><mfrac><mrow><mi>&#x3B1;</mi><mo>-</mo><mi>&#x3B2;</mi></mrow><mn>2</mn></mfrac></mfenced></math>
             </label>
 
             <br>
             <br>
 
+            <input type='hidden' name='quantitative' id='quantitative' value='0'>
+            <input type='hidden' name='reading' id='reading' value='0'>
+            <input type='hidden' name='videoaudio' id='videoaudio' value='0'>
 						<button type='submit'>Save &amp; Next Question</button>
 						<button type='reset'>Canel &amp; Clear Selection</button>
 					</div>

@@ -3,8 +3,9 @@
   <head>
     <title>Survey</title>
     <link rel='stylesheet' type='text/css' href='mystyle.css'>
+    <script src='script.js'></script>
   </head>
-  <body>
+  <body onLoad='setHiddenValues()'>
     <div class=container>
       <header>
         <h1>
@@ -50,8 +51,11 @@
             </label>
             <br>
             <br>
+            <input type='hidden' name='quantitative' id='quantitative' value='0'>
+            <input type='hidden' name='reading' id='reading' value='0'>
+            <input type='hidden' name='videoaudio' id='videoaudio' value='0'>
             <button type='submit'>Submit &amp; Get Score</button>
-            <button type='reset'>Skip &amp; Get Score</button>
+            <button type='submit'>Skip &amp; Get Score</button>
           </div>
           <br>
         </form>

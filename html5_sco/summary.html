@@ -3,8 +3,9 @@
   <head>
     <title>Summary Question</title>
     <link rel='stylesheet' type='text/css' href='mystyle.css'>
+    <script src='script.js'></script>
   </head>
-  <body>
+  <body onLoad='getHiddenValues()'>
     <div class=container>
       <header>
         <h1>
@@ -17,7 +18,34 @@
       </header>
 
       <div class=onecol>
+        <section class=bordersection>
+          <p>
+            <details>
+              <summary>Quantitative Section</summary>
+              Number of Questions: 2
+              <br>
+              Number of Correct Answer: <label name='quantitative' id='quantitative'></label>
+            </details>
+          </p>
+          <p>
+            <details>
+              <summary>Reading Section</summary>
+              Number of Questions: 2
+              <br>
+              Number of Correct Answer: <label name='reading' id='reading'></label>
+            </details>
+          </p>
+          <p>
+            <details>
+              <summary>Video/Audio Section</summary>
+              Number of Questions: 1
+              <br>
+              Number of Correct Answer: <label name='videoaudio' id='videoaudio'></label>
+            </details>
+          </p>
+        </section>
       </div>
+      <h3 style='text-align: center'>Thank you</h3>
 
       <footer>
         <hr>

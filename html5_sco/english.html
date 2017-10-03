@@ -3,18 +3,9 @@
   <head>
     <title>English Question</title>
     <link rel='stylesheet' type='text/css' href='mystyle.css'>
-    <script>
-      function show1() {
-        document.getElementById('englishchoice1').style.display = 'block';
-        document.getElementById('englishchoice2').style.display = 'none';
-      }
-      function show2() {
-        document.getElementById('englishchoice2').style.display = 'block';
-        document.getElementById('englishchoice1').style.display = 'none';
-      }
-    </script>
+    <script src='script.js'></script>
   </head>
-  <body>
+  <body onLoad='setHiddenValues()'>
     <div class=container>
       <header>
         <h1>
@@ -32,22 +23,22 @@
           <div>
             <div id='englishchoice1'>
               <label class=topleft>
-                <input type='radio' name='mark1' value='1' required>$450
+                <input type='radio' name='mark1' value='0' required>$450
               </label>
 
               <label class=topright>
-                <input type='radio' name='mark1' value='2'>$550
+                <input type='radio' name='mark1' value='0'>$550
               </label>
 
               <br>
               <br>
 
               <label class=bottomleft>
-                <input type='radio' name='mark1' value='3'>$650
+                <input type='radio' name='mark1' value='1'>$650
               </label>
 
               <label class=bottomright>
-                <input type='radio' name='mark1' value='4'>$750
+                <input type='radio' name='mark1' value='0'>$750
               </label>
             </div>
             <div id='englishchoice2' style='display: none'>
@@ -56,24 +47,27 @@
               </label>
 
               <label class=topright>
-                <input type='radio' name='mark2' value='2'>Google
+                <input type='radio' name='mark2' value='0'>Google
               </label>
 
               <br>
               <br>
 
               <label class=bottomleft>
-                <input type='radio' name='mark2' value='3'>Facebook
+                <input type='radio' name='mark2' value='0'>Facebook
               </label>
 
               <label class=bottomright>
-                <input type='radio' name='mark2' value='4'>Apple
+                <input type='radio' name='mark2' value='0'>Apple
               </label>
             </div>
 
             <br>
             <br>
 
+            <input type='hidden' name='quantitative' id='quantitative' value='0'>
+            <input type='hidden' name='reading' id='reading' value='0'>
+            <input type='hidden' name='videoaudio' id='videoaudio' value='0'>
             <button type='submit'>Save &amp; Next Question</button>
             <button type='reset'>Canel &amp; Clear Selection</button>
           </div>
