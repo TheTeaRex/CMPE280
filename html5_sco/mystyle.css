@@ -36,26 +36,26 @@ input[type="radio"] {
   float: middle;
   width: 25%;
   text-align: left;
-  margin: 5%;
+  margin: 2%;
 }
 
 .topright {
   float: middle;
   width: 25%;
   text-align: left;
-  margin: 5%;
+  margin: 2%;
 }
 
 .bottomleft {
   float: middle;
   width: 25%;
   text-align: left;
-  margin: 5%;
+  margin: 2%;
 }
 
 .bottomright {
   float: middle;
   width: 25%;
   text-align: left;
-  margin: 5%;
+  margin: 2%;
 }
