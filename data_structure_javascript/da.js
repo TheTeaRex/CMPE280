@@ -1,3 +1,4 @@
+console.log('----------------------------------------------------------');
 // Array
 var arr = ['a', 'b', 'c', 'd', 1, 3, 14, 'aev'];
 console.log('Data Structure: Array');
@@ -55,6 +56,7 @@ console.log(s.arr);
 console.log('Popping once on the stack');
 console.log('Popped: ' + s.pop());
 console.log(s.arr);
+console.log('----------------------------------------------------------');
 
 // Queue (FIFO)
 // creating the queue object
@@ -85,3 +87,4 @@ console.log(q.arr);
 console.log('Popping once on the queue');
 console.log('Popped: ' + q.pop());
 console.log(q.arr);
+console.log('----------------------------------------------------------');
