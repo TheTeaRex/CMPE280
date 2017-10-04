@@ -23,7 +23,7 @@
             <label>
               How did you like the center?
               <br>
-              Comment: <textarea name='comment' form='surveyform'></textarea>
+              Comment: <textarea rows='10' cols='50' name='comment' form='surveyform'></textarea>
               <br>
             </label>
             <br>
@@ -31,23 +31,23 @@
               Select TextArea Location:
               <input list='city' name='city'>
               <datalist id='city'>
-                <option value='San Franciso'>
-                <option value='San Jose'>
-                <option value='Palo Alto'>
-                <option value='Mountain View'>
-                <option value='Sunnyvale'>
+                <option data-state='CA' value='San Franciso'>
+                <option data-state='CA' value='San Jose'>
+                <option data-state='CA' value='Palo Alto'>
+                <option data-state='CA' value='Mountain View'>
+                <option data-state='CA' value='Sunnyvale'>
+                <option data-state='NY' value='New York City'>
               </datalist>
             </label>
-            <br>
             <label>
               Room #:
               <input list='room' name='room'>
               <datalist id='room'>
-                <option value='Room 110'>
-                <option value='Room 210'>
-                <option value='Room 337'>
-                <option value='Room 410'>
-                <option value='Room 524'>
+                <option data-floor='1' value='Room 110'>
+                <option data-floor='1' value='Room 130'>
+                <option data-floor='3' value='Room 337'>
+                <option data-floor='4' value='Room 410'>
+                <option data-floor='5' value='Room 524'>
               </datalist>
             </label>
             <br>
