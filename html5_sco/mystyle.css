@@ -16,7 +16,8 @@ header, footer {
 }
 
 .onecolsurvey {
-  float: center;
+  margin: auto;
+  width: 20%;
 	text-align: left;
 }
 
@@ -61,6 +62,7 @@ input[type="radio"] {
 }
 
 .bordersection {
+  margin: auto;
   border: thin black solid;
   width: 50%;
   text-align: left;
