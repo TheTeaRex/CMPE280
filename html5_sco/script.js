@@ -42,4 +42,7 @@ function getHiddenValues() {
   document.getElementById('quantitative').innerHTML = quantitative;
   document.getElementById('reading').innerHTML = reading;
   document.getElementById('videoaudio').innerHTML = videoaudio;
+  document.getElementById('qscore').innerHTML = quantitative / 2 * 100;
+  document.getElementById('rscore').innerHTML = reading / 2 * 100;
+  document.getElementById('vscore').innerHTML = videoaudio / 1 * 100;
 }
