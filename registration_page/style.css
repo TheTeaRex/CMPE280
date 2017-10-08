@@ -1,8 +1,13 @@
-.lefttable {
+.colone {
   text-align: right;
 }
 
-.righttable {
+.coltwo {
+  text-align: left;
+}
+
+.colthree {
+  color: red;
   text-align: left;
 }
 
