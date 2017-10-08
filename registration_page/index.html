@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <script src='script.js'></script>
+  </head>
+  <body>
+    <div class=container>
+      <header>
+        <h1>
+          Registration
+        </h1>
+        <hr>
+      </header>
+
+      <div>
+        <form>
+          <table>
+            <tr>
+              <td class='lefttable'>User ID:</td>
+              <td class='righttable'><input type='text' name='user' id='user'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Password:</td>
+              <td class='righttable'><input type='password' name='pw' id='pw'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Verify Password:</td>
+              <td class='righttable'><input type='password' name='vpw' id='vpw'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Email Address:</td>
+              <td class='righttable'><input type='email' name='email' id='email'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Verify Email Address:</td>
+              <td class='righttable'><input type='email' name='vemail' id='vemail'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Security Question</td>
+              <td class='righttable'>
+                <input list='question1'>
+                <datalist id='question1'>
+                  <option value='Sum of 2 + 3 ='>
+                  <option value='Sum of 100 + 200 ='>
+                  <option value='23 x 100 ='>
+                  <option value='Captial of India?'>
+                  <option value='Capital of USA?'>
+                </datalist>
+              </td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Security Answer</td>
+              <td class='righttable'><input type='text' name='answer1' id='answer1'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Security Question</td>
+              <td class='righttable'>
+                <input list='question2'>
+                <datalist id='question2'>
+                  <option value='Sum of 2 + 3 ='>
+                  <option value='Sum of 100 + 200 ='>
+                  <option value='23 x 100 ='>
+                  <option value='Captial of India?'>
+                  <option value='Capital of USA?'>
+                </datalist>
+              </td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Security Answer</td>
+              <td class='righttable'><input type='text' name='answer2' id='answer2'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Mobile</td>
+              <td class='righttable'><input type='text' name='mobile' id='mobile'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'>Address</td>
+              <td class='righttable'><input type='text' name='address' id='address'></td>
+            </tr>
+            <tr>
+              <td class='lefttable'><button type='submit'>Submit</button></td>
+              <td class='righttable'><button type='reset'>Cancel</button></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+
+      <footer>
+        <hr>
+        Posted by: Alan Chan
+      </footer>
+    </div>
+  </body>
+</html>
