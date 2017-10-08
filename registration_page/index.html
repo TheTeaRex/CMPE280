@@ -19,7 +19,7 @@
           <table>
             <tr>
               <td class='colone'>User ID:</td>
-              <td class='coltwo'><input type='text' name='user' id='user' required></td>
+              <td class='coltwo'><input type='text' name='user' id='user' autofocus :required></td>
             </tr>
             <tr>
               <td class='colone'>Password:</td>
@@ -27,8 +27,10 @@
             </tr>
             <tr>
               <td class='colone'>Verify Password:</td>
-              <td class='coltwo'><input type='password' name='vpw' id='vpw' onblur='chk_pw_rpt()' required></td>
-              <td class='colthree'><label id='vpw_err'></label></td>
+              <td class='coltwo'>
+                <input type='password' name='vpw' id='vpw' onblur='chk_pw_rpt()' required>
+                <label class='error' id='vpw_err'></label>
+              </td>
             </tr>
             <tr>
               <td class='colone'>Email Address:</td>
@@ -36,14 +38,16 @@
             </tr>
             <tr>
               <td class='colone'>Verify Email Address:</td>
-              <td class='coltwo'><input type='email' name='vemail' id='vemail' onblur='chk_e_rpt()' required></td>
-              <td class='colthree'><label id='vemail_err'></label></td>
+              <td class='coltwo'>
+                <input type='email' name='vemail' id='vemail' onblur='chk_e_rpt()' required>
+                <label class='error' id='vemail_err'></label>
+              </td>
             </tr>
             <tr>
               <td class='colone'>Security Question</td>
               <td class='coltwo'>
                 <select id='question1' form='regform'>
-                  <option value='1'>Sum of 2 + 3 =</option>
+                  <option value='1' selected>Sum of 2 + 3 =</option>
                   <option value='2'>Sum of 100 + 200 =</option>
                   <option value='3'>23 x 100 =</option>
                   <option value='4'>Capital of India?</option>
@@ -60,13 +64,13 @@
               <td class='coltwo'>
                 <select id='question2' form='regform' onblur='chk_q_rpt()'>
                   <option value='1'>Sum of 2 + 3 =</option>
-                  <option value='2'>Sum of 100 + 200 =</option>
+                  <option value='2' selected>Sum of 100 + 200 =</option>
                   <option value='3'>23 x 100 =</option>
                   <option value='4'>Capital of India?</option>
                   <option value='5'>Capital of USA?</option>
                 </select>
+                <label class='error' id='q_err'></label>
               </td>
-              <td class='colthree'><label id='q_err'></label></td>
             </tr>
             <tr>
               <td class='colone'>Security Answer</td>
@@ -78,7 +82,7 @@
             </tr>
             <tr>
               <td class='colone'>Address</td>
-              <td class='coltwo'><input type='text' name='address' id='address'></td>
+              <td class='coltwo'><textarea rows='5' cols='50' name='address' id='address' form='regform'></textarea></td>
             </tr>
             <tr>
               <td class='colone'><button type='submit'>Submit</button></td>
