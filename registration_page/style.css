@@ -1,3 +1,15 @@
+.container{
+	width: 98%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+header, footer {
+	padding: 1em;
+	clear: both;
+	text-align: center;
+}
+
 .colone {
   text-align: right;
 }
@@ -8,6 +20,11 @@
 
 .error {
   color: red;
+}
+
+.col {
+  float: left;
+  width: 50%;
 }
 
 td {
