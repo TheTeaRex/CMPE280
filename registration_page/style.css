@@ -27,6 +27,16 @@ header, footer {
   width: 50%;
 }
 
+.pw_req_col {
+  display: none;
+  float: left;
+  width: 25%;
+  border: thin black solid;
+}
+
+.pw_req_table {
+}
+
 td {
   padding-left: 5px;
   padding-right: 5px;

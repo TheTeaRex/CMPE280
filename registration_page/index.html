@@ -23,7 +23,7 @@
             </tr>
             <tr>
               <td class='colone'>Password:</td>
-              <td class='coltwo'><input type='password' name='pw' id='pw' required></td>
+              <td class='coltwo'><input type='password' name='pw' id='pw' onfocus='show_pw_req()' onblur='hide_pw_req()' onkeyup='validate_pw()' required></td>
             </tr>
             <tr>
               <td class='colone'>Verify Password:</td>
@@ -92,22 +92,74 @@
         </form>
       </div>
 
-      <div class='col'>
-        <label class='invalid' id='upper'>1 upper-case letter</label>
-        <br>
-        <label class='invalid' id='lower'>1 lower-case letter</label>
-        <br>
-        <label class='invalid' id='letter'>4 alphabets</label>
-        <br>
-        <label class='invalid' id='number'>1 number</label>
-        <br>
-        <label class='invalid' id='special'>1 special character (1, $, #, %)</label>
-        <br>
-        <label class='invalid' id='length'>Between 7-20 characters</label>
-        <br>
-        <label class='invalid' id='same'>Not be the same as user ID</label>
-        <br>
-        <label class='invalid' id='nospace'>Must not container space</label>
+      <div class='pw_req_col' id='pw_req_col'>
+        <b>Password Requirement:</b><br>
+        <table class='pw_req_table'>
+          <tr>
+            <td>
+              <label class='invalid' id='upper'></label>
+            </td>
+            <td>
+              1 upper-case letter
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='lower'></label>
+            </td>
+            <td>
+              1 lower-case letter
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='fouralphabets'></label>
+            </td>
+            <td>
+              at lesat 4 alphabets
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='number'></label>
+            </td>
+            <td>
+              1 number
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='special'></label>
+            </td>
+            <td>
+              1 special character (!, $, #, %)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='length'></label>
+            </td>
+            <td>
+              Between 7-20 characters
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='same'></label>
+            </td>
+            <td>
+              Not be the same as user ID
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='nospace'></label>
+            </td>
+            <td>
+              Must not container space
+            </td>
+          </tr>
+        </table>
       </div>
 
       <footer>
