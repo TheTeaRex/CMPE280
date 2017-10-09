@@ -43,3 +43,10 @@ td {
   padding-top: 2px;
   padding-bottom: 5px;
 }
+
+.pw_strength {
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  color: white;
+}

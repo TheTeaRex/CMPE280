@@ -23,7 +23,7 @@
             </tr>
             <tr>
               <td class='colone'>Password:</td>
-              <td class='coltwo'><input type='password' name='pw' id='pw' onfocus='show_pw_req()' onblur='hide_pw_req()' onkeyup='validate_pw()' required></td>
+              <td class='coltwo'><input type='password' name='pw' id='pw' onfocus='show_pw_req()' onblur='hide_pw_req()' onkeyup='pw_strength()' required></td>
             </tr>
             <tr>
               <td class='colone'>Verify Password:</td>
@@ -86,7 +86,9 @@
             </tr>
             <tr>
               <td class='colone'><button type='submit'>Submit</button></td>
-              <td class='coltwo'><button type='reset'>Cancel</button></td>
+              <td class='coltwo'>
+                <button type='reset'>Cancel</button>
+              </td>
             </tr>
           </table>
         </form>
@@ -164,7 +166,7 @@
 
       <footer>
         <hr>
-        Posted by: Alan Chan
+        <p class='pw_strength' id='pw_strength'>Current Password Strength: Weak</p>
       </footer>
     </div>
   </body>
