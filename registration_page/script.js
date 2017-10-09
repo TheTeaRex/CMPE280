@@ -61,11 +61,11 @@ function pw_strength() {
   } else {
     block.style.display = 'block';
     base = 'Current Password Strength: ';
-    if (7 <= correct && correct <= 8) {
+    if (correct == 8) {
       block.innerHTML = base + 'Strong';
       block.style.backgroundColor = 'green';
       block.style.color = 'White';
-    } else if (4 <= correct && correct <=6) {
+    } else if (5 <= correct && correct <= 7) {
       block.innerHTML = base + 'Moderate';
       block.style.backgroundColor = 'yellow';
       block.style.color = 'black';
