@@ -189,3 +189,10 @@ function validate_nospace(password) {
     return 0;
   }
 }
+
+function save_data() {
+  var list_id = ['user', 'pw', 'email', 'question1', 'answer1', 'question2', 'answer2', 'mobile', 'address'];
+  for ( i = 0; i < list_id.length; i++ ) {
+    localStorage.setItem(list_id[i], document.getElementById(list_id[i]).value);
+  }
+}
