@@ -4,8 +4,10 @@ function chk_pw_rpt() {
 
   if (document.getElementById('vpw').value.length != 0 && pw != vpw) {
     document.getElementById('vpw_err').innerHTML = '*passwords do not match!';
+    return 1;
   } else {
     document.getElementById('vpw_err').innerHTML = '';
+    return 0;
   }
 }
 
@@ -15,8 +17,10 @@ function chk_e_rpt() {
 
   if (document.getElementById('vemail').value.length != 0 && email != vemail) {
     document.getElementById('vemail_err').innerHTML = '*emails do not match!';
+    return 1;
   } else {
     document.getElementById('vemail_err').innerHTML = '';
+    return 0;
   }
 }
 
@@ -26,8 +30,10 @@ function chk_q_rpt() {
 
   if (q1 == q2) {
     document.getElementById('q_err').innerHTML = '*cannot select the same security question as the first one';
+    return 1;
   } else {
     document.getElementById('q_err').innerHTML = '';
+    return 0;
   }
 }
 
@@ -146,17 +152,6 @@ function validate_special(password) {
   }
 }
 
-function validate_special(password) {
-  var id = 'special';
-  if (password.match(/[!$#%]/g)) {
-    mk_valid(id);
-    return 1;
-  } else {
-    mk_invalid(id);
-    return 0;
-  }
-}
-
 function validate_length(password) {
   var id = 'length';
   if (7 <= password.length && password.length <= 20) {
@@ -187,6 +182,16 @@ function validate_nospace(password) {
   } else {
     mk_invalid(id);
     return 0;
+  }
+}
+
+function validation() {
+  if (chk_pw_rpt() != 0 || chk_e_rpt() != 0 || chk_q_rpt() != 0 || validate_pw() != 8) {
+    alert('Please fix all the errors');
+    return false;
+  } else {
+    save_data();
+    return true;
   }
 }
 
