@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <script src='script.js'></script>
+  </head>
+  <body>
+    <div class=container>
+      <header>
+        <h1>
+          Registration
+        </h1>
+        <hr>
+      </header>
+
+      <div class='col'>
+        <form id='regform'>
+          <table>
+            <tr>
+              <td class='colone'>User ID:</td>
+              <td class='coltwo'><input type='text' name='user' id='user' autofocus required></td>
+            </tr>
+            <tr>
+              <td class='colone'>Password:</td>
+              <td class='coltwo'><input type='password' name='pw' id='pw' onfocus='show_pw_req()' onblur='hide_pw_req()' onkeyup='pw_strength()' required></td>
+            </tr>
+            <tr>
+              <td class='colone'>Verify Password:</td>
+              <td class='coltwo'>
+                <input type='password' name='vpw' id='vpw' onblur='chk_pw_rpt()' required>
+                <label class='error' id='vpw_err'></label>
+              </td>
+            </tr>
+            <tr>
+              <td class='colone'>Email Address:</td>
+              <td class='coltwo'><input type='email' name='email' id='email' required></td>
+            </tr>
+            <tr>
+              <td class='colone'>Verify Email Address:</td>
+              <td class='coltwo'>
+                <input type='email' name='vemail' id='vemail' onblur='chk_e_rpt()' required>
+                <label class='error' id='vemail_err'></label>
+              </td>
+            </tr>
+            <tr>
+              <td class='colone'>Security Question</td>
+              <td class='coltwo'>
+                <select id='question1' form='regform'>
+                  <option value='1' selected>Sum of 2 + 3 =</option>
+                  <option value='2'>Sum of 100 + 200 =</option>
+                  <option value='3'>23 x 100 =</option>
+                  <option value='4'>Capital of India?</option>
+                  <option value='5'>Capital of USA?</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class='colone'>Security Answer</td>
+              <td class='coltwo'><input type='text' name='answer1' id='answer1'></td>
+            </tr>
+            <tr>
+              <td class='colone'>Security Question</td>
+              <td class='coltwo'>
+                <select id='question2' form='regform' onblur='chk_q_rpt()'>
+                  <option value='1'>Sum of 2 + 3 =</option>
+                  <option value='2' selected>Sum of 100 + 200 =</option>
+                  <option value='3'>23 x 100 =</option>
+                  <option value='4'>Capital of India?</option>
+                  <option value='5'>Capital of USA?</option>
+                </select>
+                <label class='error' id='q_err'></label>
+              </td>
+            </tr>
+            <tr>
+              <td class='colone'>Security Answer</td>
+              <td class='coltwo'><input type='text' name='answer2' id='answer2'></td>
+            </tr>
+            <tr>
+              <td class='colone'>Mobile</td>
+              <td class='coltwo'><input type='text' name='mobile' id='mobile'></td>
+            </tr>
+            <tr>
+              <td class='colone'>Address</td>
+              <td class='coltwo'><textarea rows='5' cols='50' name='address' id='address' form='regform'></textarea></td>
+            </tr>
+            <tr>
+              <td class='colone'><button type='button' onclick='validation()'>Submit</button></td>
+              <td class='coltwo'>
+                <button type='reset'>Cancel</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+
+      <div class='pw_req_col' id='pw_req_col'>
+        <b>Password Requirement:</b><br>
+        <table class='pw_req_table'>
+          <tr>
+            <td>
+              <label class='invalid' id='upper'></label>
+            </td>
+            <td>
+              1 upper-case letter
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='lower'></label>
+            </td>
+            <td>
+              1 lower-case letter
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='fouralphabets'></label>
+            </td>
+            <td>
+              at lesat 4 alphabets
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='number'></label>
+            </td>
+            <td>
+              1 number
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='special'></label>
+            </td>
+            <td>
+              1 special character (!, $, #, %)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='length'></label>
+            </td>
+            <td>
+              Between 7-20 characters
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='same'></label>
+            </td>
+            <td>
+              Not be the same as user ID
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class='invalid' id='nospace'></label>
+            </td>
+            <td>
+              Must not container space
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <footer>
+        <hr>
+        <p class='pw_strength' id='pw_strength'>Current Password Strength: Weak</p>
+      </footer>
+    </div>
+  </body>
+</html>
