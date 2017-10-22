@@ -14,12 +14,18 @@
         <hr>
       </header>
 
-      <div class="board">
-        <img class="draggable" id="circle" src="circle.png" width="80" height"80" ondragstart="drag(event)" draggable="true">
-        <img class="draggable" id="rectangle" src="rectangle.png" width="80" height"80" ondragstart="drag(event)" draggable="true">
-        <img class="draggable" id="triangle" src="triangle.png" width="80" height"80" ondragstart="drag(event)" draggable="true">
+      <div class="board" id="board" ondrop="drop(event)" ondragover="drag_over(event)">
+        <img class="draggable" id="circle" src="circle.png"
+             width="80" height"80"
+             ondragstart="drag(event)" draggable="true">
+        <img class="draggable" id="rectangle" src="rectangle.png"
+             width="80" height"80"
+             ondragstart="drag(event)" draggable="true">
+        <img class="draggable" id="triangle" src="triangle.png"
+             width="80" height"80"
+             ondragstart="drag(event)" draggable="true">
       </div>
-      <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="board" ondrop="drop(event)" ondragover="drag_over(event)">
       </div>
 
 
