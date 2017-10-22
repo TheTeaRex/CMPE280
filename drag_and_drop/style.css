@@ -25,7 +25,9 @@ svg {
 
 .draggable {
   position: relative;
-  left: 0;
-  top: 0;
   cursor: move;
+}
+
+.not_draggable {
+  position: absolute;
 }
