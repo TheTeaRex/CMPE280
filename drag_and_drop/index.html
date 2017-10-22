@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class=container>
+      <header>
+        <h1>
+          Let's do some dragging and dropping!
+        </h1>
+        <hr>
+      </header>
+
+      <div align="center">
+        <svg height="500" width="1000" ondrop="drop(evt)" ondragover="allowDrop(evt)">
+          <circle class="draggable"
+                  id="circle"
+                  cx="50" cy="50" r="40" 
+                  stroke="black" stroke-width="1" 
+                  fill="blue"
+                  transform="matrix(1 0 0 1 0 0)"
+                  ondragstart="drag(evt)"
+                  draggable="true"/>
+          <rect class="draggable"
+                id="rectangle"
+                x="10" y="100" width="80" height="80"
+                style="fill:red;stroke:black;stroke-width:1"
+                transform="matrix(1 0 0 1 0 0)"
+                draggable="true"/>
+          <polygon class="draggable"
+                   id="triangle"
+                   points="50,200 10,280 90,280" 
+                   style="fill:green;stroke:black;stroke-width:1;"
+                   transform="matrix(1 0 0 1 0 0)"
+                   draggable="true"/>
+
+          <div class="drop">
+          </div> 
+        </svg>
+      </div>
+
+      <footer>
+        <hr>
+        Posted by Alan
+      </footer>
+    </div>
+  </body>
+</html>

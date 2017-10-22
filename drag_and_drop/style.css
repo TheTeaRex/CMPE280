@@ -1,0 +1,25 @@
+.container {
+  width: 98%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+header, footer {
+  padding: 1em;
+  clear: both;
+  text-align: center;
+}
+
+svg {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.drop {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.draggable {
+  cursor: move;
+}
