@@ -4,27 +4,31 @@ function drag_over(event) {
 
 function drag(event) {
   var style = window.getComputedStyle(event.target, null);
-  var data = (parseInt(style.getPropertyValue("left")) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top")) - event.clientY) + ',' + event.target.id;
+
+  // 17, 130
+  // 17, 214
+  // 17, 300
+  var x = event.clientX;
+  var y = event.clientY;
+  var offsetx = 17 - x;
+  var offsety = 0;
+  if ( 130 <= y && y <= 210 ) {
+    offsety = 130 - y;
+  } else if ( 214 <= y && y <= 294 ) {
+    offsety = 214 - y;
+  } else if ( 300 <= y && y <= 380) {
+    offsety = 300 - y;
+  }
+
+  var data = parseInt(offsetx) + ',' + parseInt(offsety) + ',' + event.target.id;
   event.dataTransfer.setData("text", data);
-  console.log(event);
-  console.log(event.clientX);
-  console.log(event.clientY);
-  console.log(style.getPropertyValue("left"));
-  console.log(style.getPropertyValue("top"));
 }
 
 function drop(event) {
   var board = document.getElementById('board');
-  console.log(board.offsetLeft);
-  console.log(board.offsetTop);
   var data = event.dataTransfer.getData("text").split(',');
-  console.log(data);
-  console.log(event.clientX);
-  console.log(event.clientY);
-  var l = (event.clientX) + 'px';
-  var t = (event.clientY) + 'px';
-  console.log(l);
-  console.log(t);
+  var l = (event.clientX + parseInt(data[0])) + 'px';
+  var t = (event.clientY + parseInt(data[1])) + 'px';
   if ( data[2] == "circle" ) {
     var new_obj = create_circle();
   } else if ( data[2] == "rectangle") {

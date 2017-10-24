@@ -14,7 +14,7 @@
         <hr>
       </header>
 
-      <div class="board" id="board" ondrop="drop(event)" ondragover="drag_over(event)">
+      <div class="leftboard">
         <img class="draggable" id="circle" src="circle.png"
              width="80" height"80"
              ondragstart="drag(event)" draggable="true">
@@ -24,6 +24,8 @@
         <img class="draggable" id="triangle" src="triangle.png"
              width="80" height"80"
              ondragstart="drag(event)" draggable="true">
+      </div>
+      <div class="rightboard" id="board" ondrop="drop(event)" ondragover="drag_over(event)">
       </div>
 
 
