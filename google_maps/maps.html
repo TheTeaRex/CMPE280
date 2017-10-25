@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maps</title>
+    <style>
+      #map, #circle_map {
+        height: 500px;
+        width: 100%;
+       }
+    </style>
+    <script src="location.json"></script>
+    <script src="script.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM&callback=initMap">
+    </script>
+  </head>
+  <body>
+    <h3>MyCo Locations</h3>
+    <div id="map"></div>
+    <hr>
+    <h3>Revenue Circle on Retail Locations</h3>
+    <div id="circle_map"></div>
+  </body>
+</html>
