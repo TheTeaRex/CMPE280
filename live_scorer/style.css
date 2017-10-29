@@ -1,0 +1,57 @@
+.container {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.little_container {
+  position: relative;
+  width: 75%;
+  height: 500px;
+  margin: auto;
+  border-style: solid;
+  border-color: black;
+}
+
+.messages {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.header_box {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: blue;
+  color: white;
+}
+
+.button {
+  bottom: 0;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+.in_button {
+  background-color: green;
+  left: 0;
+}
+
+.out_button {
+  background-color: red;
+  right: 0;
+}
+
+.score {
+  text-align: center;
+}
+
+h3 {
+  display: inline;
+}
