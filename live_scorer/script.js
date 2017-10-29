@@ -38,6 +38,10 @@ function listen_socket(socket) {
       console.log(msg);
       document.getElementById('comment').innerHTML = msg;
     });
+    socket.on('score', function(data) {
+      console.log(data);
+      document.getElementById('score').innerHTML = data;
+    });
   } catch(err) {
     console.log('caught');
   };

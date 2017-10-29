@@ -27,9 +27,9 @@ http.listen(3000, function(){
 });
 
 setInterval( function(){
-  io.emit('comment', 'hi');
   console.log('sending');
   update_comment();
+  update_score();
 }, 5000);
 
 function update_comment() {
@@ -42,6 +42,22 @@ function update_comment() {
     'Unbelievable miss',
     'Very good catch by mid-on player'
   ];
-  var choice = Math.floor(Math.random() * 10) % comments.length;
-  return comments[choice];
+  var choice = Math.floor(Math.random() * 100) % comments.length;
+  io.emit('comment', comments[choice]);
+};
+
+var left = 0;
+var right = 0;
+function update_score() {
+  var side = Math.floor(Math.random() * 100) % 2;
+  var score = Math.floor(Math.random() * 100) % 2;
+  var scores = [4, 6];
+  if (side == 0) {
+    left += scores[score];
+  } else {
+    right += scores[score];
+  };
+  var score_string = left + ' VS ' + right;
+  console.log(score_string);
+  io.emit('score', score_string);
 };
