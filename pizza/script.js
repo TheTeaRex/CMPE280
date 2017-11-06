@@ -1,8 +1,55 @@
+var translation = {
+  'hts': 'Hand Tossed Small',
+  'htm': 'Hand Tossed Medium',
+  'htl': 'Hand Tossed Large',
+  'htxl': 'Hand Tossed Extra-Large',
+  'hmpm': 'Hand Made Pan Medium',
+  'ctcm': 'Crunchy Thin Crust Medium',
+  'ctcl': 'Crunchy Thin Crust Large',
+  'bsl': 'Brooklyn Style Large',
+  'bsxl': 'Brooklyn Style Extra-Large',
+  'gfls': 'Gluten Free Crust Small',
+  'rits': 'Robust Inspired Tomato Sauce',
+  'hms': 'Hearty Marinara Sauce',
+  'bbq': 'BBQ Sauce',
+  'gpws': 'Garlic Parmesan White Sauce',
+  'as': 'Alfredo Sauce',
+  'light': 'Light',
+  'normal': 'Normal',
+  'extra': 'Extra',
+  'double': 'Double',
+  'pepperoni': 'Pepperoni',
+  'sausage': 'Italian Sausage',
+  'sliced_sausage': 'Sliced Italian Sausage',
+  'beef': 'Beef',
+  'philly_steak': 'Philly Steak',
+  'ham': 'Ham',
+  'bacon': 'Bacon',
+  'salami': 'Salami',
+  'chicken': 'Chicken',
+  'cheddar_cheese': 'Cheddar Cheese',
+  'feta_cheese': 'Feta Cheese',
+  'asiago': 'Shredded Parmesan Asiago',
+  'provolone_cheese': 'Sgreeded Provolone Cheese',
+  'banana_cheese': 'Banana Peppers',
+  'olives': 'Olives',
+  'garlic': 'Garlic',
+  'green_peppers': 'Green Pepper',
+  'jalapeno_peppers': 'Jalapeno Peppers',
+  'mushrooms': 'Mushrooms',
+  'pineapple': 'Pineapple',
+  'onions': 'Onions',
+  'red_peppers': 'Roasted Red Pepper',
+  'spinach': 'Spinach',
+  'tomatoes': 'Diced Tomatoes',
+  'hot_sauce': 'Hot Sauce'
+};
 var size_crust_selection = '';
 var meat_toppings = [];
 var nonmeat_toppings = [];
 var cheese_selection = {};
 var sauce_selection = {};
+var toppings_sorted = {};
 
 function init() {
   console.log('showing size and crust section');
@@ -135,10 +182,12 @@ function change_page() {
       var fourth = document.getElementById('dashboard_section');
       var build = document.getElementById('build');
       var home = document.getElementById('home');
+      var container = document.getElementById('inner_container');
       third.style.display = 'none';
       fourth.style.display = 'block';
       build.style.display = 'none';
       home.style.display = 'block';
+      container.style.height = '950px';
       display_dashboard();
     };
   };
@@ -152,10 +201,12 @@ function display_dashboard() {
   console.log(nonmeat_toppings);
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(draw_pie_chart);
+  google.charts.load('current', {'packages':['sankey']});
+  google.charts.setOnLoadCallback(draw_sankey);
 };
 
 function draw_pie_chart() {
-  var toppings_sorted = sort_toppings();
+  toppings_sorted = sort_toppings();
   var data = google.visualization.arrayToDataTable([
     ['Toppings', 'Portion'],
     ['Meat', toppings_sorted['meat']],
@@ -177,22 +228,21 @@ function draw_pie_chart() {
 };
 
 function sort_toppings() {
-  console.log('hello');
   result = {};
 
   result['meat'] = meat_toppings.length;
   result['cheese'] = 0;
   if (nonmeat_toppings.indexOf('cheddar_cheese') > -1) {
-    result['cheese']++; 
+    result['cheese']++;
   };
   if (nonmeat_toppings.indexOf('feta_cheese') > -1) {
-    result['cheese']++; 
+    result['cheese']++;
   };
   if (nonmeat_toppings.indexOf('asiago') > -1) {
-    result['cheese']++; 
+    result['cheese']++;
   };
   if (nonmeat_toppings.indexOf('provolone_cheese') > -1) {
-    result['cheese']++; 
+    result['cheese']++;
   };
 
   result['olives'] = (nonmeat_toppings.indexOf('olives') > -1) ? 1 : 0;
@@ -201,34 +251,138 @@ function sort_toppings() {
 
   result['fruit'] = 0;
   if (nonmeat_toppings.indexOf('pineapple') > -1) {
-    result['fruit']++; 
+    result['fruit']++;
   };
   if (nonmeat_toppings.indexOf('tomatoes') > -1) {
-    result['fruit']++; 
+    result['fruit']++;
   };
 
   result['veggies'] = 0;
   if (nonmeat_toppings.indexOf('onions') > -1) {
-    result['veggies']++; 
+    result['veggies']++;
   };
   if (nonmeat_toppings.indexOf('spinach') > -1) {
-    result['veggies']++; 
+    result['veggies']++;
   };
 
   result['peppers'] = 0;
   if (nonmeat_toppings.indexOf('banana_peppers') > -1) {
-    result['peppers']++; 
+    result['peppers']++;
   };
   if (nonmeat_toppings.indexOf('green_peppers') > -1) {
-    result['peppers']++; 
+    result['peppers']++;
   };
   if (nonmeat_toppings.indexOf('jalapeno_peppers') > -1) {
-    result['peppers']++; 
+    result['peppers']++;
   };
   if (nonmeat_toppings.indexOf('red_peppers') > -1) {
-    result['peppers']++; 
+    result['peppers']++;
   };
 
   console.log(result);
   return result;
+};
+
+function draw_sankey() {
+  var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows(create_sankey_array());
+
+  // Instantiates and draws our chart, passing in some options.
+  var chart = new google.visualization.Sankey(document.getElementById('sankey'));
+  chart.draw(data);
+};
+
+function create_sankey_array() {
+  result = [];
+
+  if ('left' in cheese_selection) {
+    result.push([translation[size_crust_selection], 'left cheese', quantity_to_weight(cheese_selection['left'])]);
+    result.push([translation[size_crust_selection], 'right cheese', quantity_to_weight(cheese_selection['right'])]);
+  };
+
+  if ('sauce' in sauce_selection) {
+    result.push([translation[size_crust_selection], translation[sauce_selection['sauce']], quantity_to_weight(sauce_selection['quantity'])]);
+  };
+
+  if (meat_toppings.length != 0) {
+    if ('left' in cheese_selection) {
+      for (i = 0; i < meat_toppings.length; i++) {
+        if (get_random_number(6) != 1) {
+          result.push(['left cheese', translation[meat_toppings[i]], get_random_number(5)]);
+        };
+        if (get_random_number(6) != 1) {
+          result.push(['right cheese', translation[meat_toppings[i]], get_random_number(5)]);
+        };
+      };
+    };
+    if ('sauce' in sauce_selection) {
+      for (i = 0; i < meat_toppings.length; i++) {
+        if (get_random_number(6) != 1) {
+          result.push([translation[sauce_selection['sauce']], translation[meat_toppings[i]], get_random_number(5)]);
+        };
+      };
+    };
+    if (!('left' in cheese_selection) && !('sauce' in sauce_selection)) {
+      for (i = 0; i < meat_toppings.length; i++) {
+        result.push([translation[size_crust_selection], translation[meat_toppings[i]], get_random_number(5)]);
+      };
+    };
+    if (nonmeat_toppings.length != 0) {
+      for (i = 0; i < meat_toppings.length; i++) {
+        for (j = 0; j <nonmeat_toppings.length; j++) {
+          if (get_random_number(6) != 1) {
+            result.push([translation[meat_toppings[i]], translation[nonmeat_toppings[j]], get_random_number(5)]);
+          };
+        };
+      };
+    };
+  };
+
+  if (nonmeat_toppings.length != 0) {
+    if (meat_toppings.length == 0 && !('sauce' in sauce_selection) && !('left' in cheese_selection)) {
+      for (i = 0; i < nonmeat_toppings.length; i++) {
+        result.push([translation[size_crust_selection], translation[nonmeat_toppings[i]], get_random_number(5)]);
+      };
+    };
+    if ('sauce' in sauce_selection) {
+      for (i = 0; i < nonmeat_toppings.length; i++) {
+        if (get_random_number(6) != 1) {
+          result.push([translation[sauce_selection['sauce']], translation[nonmeat_toppings[i]], get_random_number(5)]);
+        };
+      };
+    };
+    if ('left' in cheese_selection) {
+      for (i = 0; i < nonmeat_toppings.length; i++) {
+        if (get_random_number(6) != 1) {
+          result.push(['left cheese', translation[nonmeat_toppings[i]], get_random_number(5)]);
+        };
+        if (get_random_number(6) != 1) {
+          result.push(['right cheese', translation[nonmeat_toppings[i]], get_random_number(5)]);
+        };
+      };
+    };
+  };
+
+  return result;
+};
+
+function quantity_to_weight(q) {
+  if (q == 'light') {
+    return 1;
+  } else if (q == 'normal') {
+    return 2;
+  } else if (q == 'extra') {
+    return 3;
+  } else if (q == 'double') {
+    return 4;
+  } else {
+    return 0;
+  };
+};
+
+function get_random_number(num) {
+  return (Math.floor(Math.random() * 100) % num) + 1;
 };
