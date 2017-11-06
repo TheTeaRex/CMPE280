@@ -13,7 +13,7 @@ header, footer {
 .inner_container {
   position: relative;
   margin: auto;
-  height: 500px;
+  height: 600px;
 }
 
 .secondheader {
@@ -54,4 +54,9 @@ header, footer {
 
 .right {
   right: 0;
+}
+
+.piechart {
+  width: 100%;
+  height: 500px;
 }

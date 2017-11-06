@@ -48,7 +48,6 @@ function change_page() {
       if (size[i].checked) {
         size_crust.value = size[i].value;
         size_crust_selection = size[i].value;
-        console.log(size_crust.value);
         break;
       };
     };
@@ -71,7 +70,6 @@ function change_page() {
       for (i = 0; i < left.length; i++) {
         if (left[i].selected) {
           cheese_selection['left'] = left[i].value;
-          console.log(left[i].value);
           break;
         };
       };
@@ -79,7 +77,6 @@ function change_page() {
       for (i = 0; i < right.length; i++) {
         if (right[i].selected) {
           cheese_selection['right'] = right[i].value;
-          console.log(right[i].value);
           break;
         };
       };
@@ -91,7 +88,6 @@ function change_page() {
       for (i = 0; i < sauce_quantity.length; i++) {
         if (sauce_quantity[i].selected) {
           sauce_selection['quantity'] = sauce_quantity[i].value;
-          console.log(sauce_quantity[i].value);
           break;
         };
       };
@@ -99,7 +95,6 @@ function change_page() {
       for (i = 0; i < sauce_sel.length; i++) {
         if (sauce_sel[i].checked) {
           sauce_selection['sauce'] = sauce_sel[i].value;
-          console.log(sauce_sel[i].value);
           break;
         };
       };
@@ -131,8 +126,6 @@ function change_page() {
         nonmeat_toppings.push(nonmeat[i].value);
       };
     };
-    console.log(meat_toppings);
-    console.log(nonmeat_toppings);
 
     if (toppings.value == 'not set') {
       return false;
@@ -146,15 +139,96 @@ function change_page() {
       fourth.style.display = 'block';
       build.style.display = 'none';
       home.style.display = 'block';
-      print_selections();
+      display_dashboard();
     };
   };
 };
 
-function print_selections() {
+function display_dashboard() {
   console.log(size_crust_selection);
   console.log(cheese_selection);
   console.log(sauce_selection);
   console.log(meat_toppings);
   console.log(nonmeat_toppings);
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(draw_pie_chart);
+};
+
+function draw_pie_chart() {
+  var toppings_sorted = sort_toppings();
+  var data = google.visualization.arrayToDataTable([
+    ['Toppings', 'Portion'],
+    ['Meat', toppings_sorted['meat']],
+    ['Cheese', toppings_sorted['cheese']],
+    ['Olives', toppings_sorted['olives']],
+    ['Garlic', toppings_sorted['garlic']],
+    ['Mushrooms', toppings_sorted['mushrooms']],
+    ['Fruit', toppings_sorted['fruit']],
+    ['Vegetables', toppings_sorted['veggies']],
+    ['Peppers', toppings_sorted['peppers']],
+  ]);
+
+  var options = {
+    title: 'Toppings Distribution'
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+};
+
+function sort_toppings() {
+  console.log('hello');
+  result = {};
+
+  result['meat'] = meat_toppings.length;
+  result['cheese'] = 0;
+  if (nonmeat_toppings.indexOf('cheddar_cheese') > -1) {
+    result['cheese']++; 
+  };
+  if (nonmeat_toppings.indexOf('feta_cheese') > -1) {
+    result['cheese']++; 
+  };
+  if (nonmeat_toppings.indexOf('asiago') > -1) {
+    result['cheese']++; 
+  };
+  if (nonmeat_toppings.indexOf('provolone_cheese') > -1) {
+    result['cheese']++; 
+  };
+
+  result['olives'] = (nonmeat_toppings.indexOf('olives') > -1) ? 1 : 0;
+  result['garlic'] = (nonmeat_toppings.indexOf('garlic') > -1) ? 1 : 0;
+  result['mushrooms'] = (nonmeat_toppings.indexOf('mushrooms') > -1) ? 1 : 0;
+
+  result['fruit'] = 0;
+  if (nonmeat_toppings.indexOf('pineapple') > -1) {
+    result['fruit']++; 
+  };
+  if (nonmeat_toppings.indexOf('tomatoes') > -1) {
+    result['fruit']++; 
+  };
+
+  result['veggies'] = 0;
+  if (nonmeat_toppings.indexOf('onions') > -1) {
+    result['veggies']++; 
+  };
+  if (nonmeat_toppings.indexOf('spinach') > -1) {
+    result['veggies']++; 
+  };
+
+  result['peppers'] = 0;
+  if (nonmeat_toppings.indexOf('banana_peppers') > -1) {
+    result['peppers']++; 
+  };
+  if (nonmeat_toppings.indexOf('green_peppers') > -1) {
+    result['peppers']++; 
+  };
+  if (nonmeat_toppings.indexOf('jalapeno_peppers') > -1) {
+    result['peppers']++; 
+  };
+  if (nonmeat_toppings.indexOf('red_peppers') > -1) {
+    result['peppers']++; 
+  };
+
+  console.log(result);
+  return result;
 };
