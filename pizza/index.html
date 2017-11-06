@@ -24,34 +24,85 @@
             <div class="fourcol">
               <p><b>Hand Tossed</b></p>
               <p>Garlic-seasoned crust with a rich, buttery taste.</p>
-              <input type="radio" name="size" value="hts" />Small (10")<br>
-              <input type="radio" name="size" value="htm" />Medium (12")<br>
-              <input type="radio" name="size" value="htl" />Large (14")<br>
-              <input type="radio" name="size" value="htxl" />Extra Large (16")<br>
+              <label><input type="radio" name="size" value="hts">Small (10")</label><br>
+              <label><input type="radio" name="size" value="htm">Medium (12")</label><br>
+              <label><input type="radio" name="size" value="htl">Large (14")</label><br>
+              <label><input type="radio" name="size" value="htxl">Extra Large (16")</label><br>
             </div>
             <div class="fourcol">
               <p><b>Hand Made Pan</b></p>
               <p>Two layers of cheese, toppings to the edge, and a crust that bakes up golden and crispy with a buttery taste.</p>
-              <input type="radio" name="size" value="hmpm" />Medium (12")<br>
+              <label><input type="radio" name="size" value="hmpm">Medium (12")</label><br>
             </div>
             <div class="fourcol">
               <p><b>Cruchy Thin Crust</b></p>
               <p>Thin enough for the optimum crispy to crunchy ratio.</p>
-              <input type="radio" name="size" value="ctcm" />Medium (12")<br>
-              <input type="radio" name="size" value="ctcl" />Large (14")<br>
+              <label><input type="radio" name="size" value="ctcm">Medium (12")</label><br>
+              <label><input type="radio" name="size" value="ctcl">Large (14")</label><br>
             </div>
             <div class="fourcol">
               <p><b>Brooklyn Style</b></p>
               <p>Hand stretched to be big, thin, and perfectly foldable.</p>
-              <input type="radio" name="size" value="bsl" />Large (14")<br>
-              <input type="radio" name="size" value="bsxl" />Extra Large (16")<br>
+              <label><input type="radio" name="size" value="bsl">Large (14")</label><br>
+              <label><input type="radio" name="size" value="bsxl">Extra Large (16")</label><br>
             </div>
             <div class="fourcol">
               <p><b>Gluten Free Crust</b></p>
               <p>Domino's pizza made with a Gluten Free Crust.</p>
-              <input type="radio" name="size" value="gfls" />Small (10")<br>
+              <label><input type="radio" name="size" value="gfls">Small (10")</label><br>
             </div>
-            <input type="hidden" name="size_crust" id="size_crust" value="not set" />
+            <input type="hidden" name="size_crust" id="size_crust" value="not set">
+          </div>
+
+          <div id="cheese_sauce_section">
+            <div class="secondheader">
+              <h3>Please select the Cheese &amp; Sauce</h3>
+            </div>
+
+            <div class="threecol">
+              <p><b>Cheese</b></p>
+              <label><input type="checkbox" name="cheese" id="cheese" onclick="cheese_change()" checked>Cheese</label><br>
+              <div id="cheese_selection">
+                <p>
+                  Left:
+                  <select>
+                    <option name="left" value="light">Light</option>
+                    <option name="left" value="normal" selected>Normal</option>
+                    <option name="left" value="extra">Extra</option>
+                    <option name="left" value="double">Double</option>
+                  </select>
+                </p>
+                <p>
+                  Right:
+                  <select>
+                    <option name="right" value="light">Light</option>
+                    <option name="right" value="normal" selected>Normal</option>
+                    <option name="right" value="extra">Extra</option>
+                    <option name="right" value="double">Double</option>
+                  </select>
+                </p>
+              </div>
+            </div>
+            <div class="threecol">
+              <p><b>Choose A Sauce</b></p>
+              <label><input type="checkbox" name="sauce" id="sauce" onclick="sauce_change()" checked>Sauce</label><br>
+              <div id="sauce_selection">
+                <p>
+                <select>
+                  <option name="sauce_quantity" value="light">Light</option>
+                  <option name="sauce_quantity" value="normal" selected>Normal</option>
+                  <option name="sauce_quantity" value="extra">Extra</option>
+                  <option name="sauce_quantity" value="double">Double</option>
+                </select>
+                </p>
+                <label><input type="radio" name="sauce_choices" value="rits" checked/>Robust Inspired Tomato Sauce</label><br>
+                <label><input type="radio" name="sauce_choices" value="hms">Hearty Marinara Sauce</label><br>
+                <label><input type="radio" name="sauce_choices" value="bbq">BBQ Sauce</label><br>
+                <label><input type="radio" name="sauce_choices" value="gpws">Garlic Parmesan White Sauce</label><br>
+                <label><input type="radio" name="sauce_choices" value="as">Alfredo Sauce</label><br>
+              </div>
+            </div>
+            <input type="hidden" name="cheese_sauce" id="cheese_sauce" value="not set">
           </div>
 
           <div id="toppings_section">
@@ -61,41 +112,52 @@
 
             <div class="twocol">
               <p><b>Choose Meat</b></p>
-              <input type="checkbox" name="meat" value="pepperoni" />Pepperoni<br>
-              <input type="checkbox" name="meat" value="sausage" />Italian Sausage<br>
-              <input type="checkbox" name="meat" value="sliced_sausage" />Sliced Italian Sausage<br>
-              <input type="checkbox" name="meat" value="beef" />Beef<br>
-              <input type="checkbox" name="meat" value="philly_steak" />Philly Steak<br>
-              <input type="checkbox" name="meat" value="ham" />Ham<br>
-              <input type="checkbox" name="meat" value="bacon" />Bacon<br>
-              <input type="checkbox" name="meat" value="salami" />Salami<br>
-              <input type="checkbox" name="meat" value="chicken" />Premium Chicken<br>
+              <label><input type="checkbox" name="meat" value="pepperoni">Pepperoni</label><br>
+              <label><input type="checkbox" name="meat" value="sausage">Italian Sausage</label><br>
+              <label><input type="checkbox" name="meat" value="sliced_sausage">Sliced Italian Sausage</label><br>
+              <label><input type="checkbox" name="meat" value="beef">Beef</label><br>
+              <label><input type="checkbox" name="meat" value="philly_steak">Philly Steak</label><br>
+              <label><input type="checkbox" name="meat" value="ham">Ham</label><br>
+              <label><input type="checkbox" name="meat" value="bacon">Bacon</label><br>
+              <label><input type="checkbox" name="meat" value="salami">Salami</label><br>
+              <label><input type="checkbox" name="meat" value="chicken">Premium Chicken</label><br>
             </div>
             <div class="twocol">
               <p><b>Choose Non-Meat</b></p>
-              <input type="checkbox" name="nonmeat" value="cheddar_cheese" />Cheddar Cheese<br>
-              <input type="checkbox" name="nonmeat" value="feta_cheese" />Feta Cheese<br>
-              <input type="checkbox" name="nonmeat" value="asiago" />Shredded Parmesan Asiago<br>
-              <input type="checkbox" name="nonmeat" value="provolone_cheese" />Shredded Provolone Cheese<br>
-              <input type="checkbox" name="nonmeat" value="banana_peppers" />Banana Peppers<br>
-              <input type="checkbox" name="nonmeat" value="olives" />Black Olives<br>
-              <input type="checkbox" name="nonmeat" value="garlic" />Garlic<br>
-              <input type="checkbox" name="nonmeat" value="green_peppers" />Green Peppers<br>
-              <input type="checkbox" name="nonmeat" value="jalapeno_peppers" />Jalapeno Peppers<br>
-              <input type="checkbox" name="nonmeat" value="mushrooms" />Mushrooms<br>
-              <input type="checkbox" name="nonmeat" value="pineapple" />Pineapple<br>
-              <input type="checkbox" name="nonmeat" value="onions" />Onions<br>
-              <input type="checkbox" name="nonmeat" value="red_peppers" />Roasted Red Pepper<br>
-              <input type="checkbox" name="nonmeat" value="spinach" />Spinach<br>
-              <input type="checkbox" name="nonmeat" value="tomatoes" />Diced Tomatoes<br>
-              <input type="checkbox" name="nonmeat" value="hot_sauce" />Hot Sauce<br>
+              <label><input type="checkbox" name="nonmeat" value="cheddar_cheese">Cheddar Cheese</label><br>
+              <label><input type="checkbox" name="nonmeat" value="feta_cheese">Feta Cheese</label><br>
+              <label><input type="checkbox" name="nonmeat" value="asiago">Shredded Parmesan Asiago</label><br>
+              <label><input type="checkbox" name="nonmeat" value="provolone_cheese">Shredded Provolone Cheese</label><br>
+              <label><input type="checkbox" name="nonmeat" value="banana_peppers">Banana Peppers</label><br>
+              <label><input type="checkbox" name="nonmeat" value="olives">Black Olives</label><br>
+              <label><input type="checkbox" name="nonmeat" value="garlic">Garlic</label><br>
+              <label><input type="checkbox" name="nonmeat" value="green_peppers">Green Peppers</label><br>
+              <label><input type="checkbox" name="nonmeat" value="jalapeno_peppers">Jalapeno Peppers</label><br>
+              <label><input type="checkbox" name="nonmeat" value="mushrooms">Mushrooms</label><br>
+              <label><input type="checkbox" name="nonmeat" value="pineapple">Pineapple</label><br>
+              <label><input type="checkbox" name="nonmeat" value="onions">Onions</label><br>
+              <label><input type="checkbox" name="nonmeat" value="red_peppers">Roasted Red Pepper</label><br>
+              <label><input type="checkbox" name="nonmeat" value="spinach">Spinach</label><br>
+              <label><input type="checkbox" name="nonmeat" value="tomatoes">Diced Tomatoes</label><br>
+              <label><input type="checkbox" name="nonmeat" value="hot_sauce">Hot Sauce</label><br>
             </div>
-            <input type="hidden" name="toppings" id="toppings" value="not set" />
+            <input type="hidden" name="toppings" id="toppings" value="not set">
+          </div>
+
+          <div id="dashboard_section">
+            <div class="secondheader">
+              <h3>Dashboard</h3>
+            </div>
           </div>
 
           <div class="button">
-            <div class="button build" onclick="change_page()">Build</div>
-            <div class="button cancel" onClick="location.href=location.href">Cancel</div>
+            <div class="build" id="build">
+              <div class="button left" onclick="change_page()">Build</div>
+              <div class="button right" onClick="location.href=location.href">Cancel</div>
+            </div>
+            <div class="home" id="home">
+              <div class="button left" onClick="location.href=location.href">Home</div>
+            </div>
           </div>
 
         </form>

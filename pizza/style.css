@@ -27,6 +27,12 @@ header, footer {
   height: 180px;
 }
 
+.threecol {
+  float: left;
+  width: 33%;
+  height: 180px;
+}
+
 .twocol {
   float: left;
   width: 49%;
@@ -42,10 +48,10 @@ header, footer {
   background-color: cyan;
 }
 
-.build {
+.left {
   left: 0;
 }
 
-.cancel {
+.right {
   right: 0;
 }
