@@ -217,6 +217,7 @@ function draw_pie_chart() {
     ['Fruit', toppings_sorted['fruit']],
     ['Vegetables', toppings_sorted['veggies']],
     ['Peppers', toppings_sorted['peppers']],
+    ['Hot Sauce', toppings_sorted['sauce']]
   ]);
 
   var options = {
@@ -231,52 +232,42 @@ function sort_toppings() {
   result = {};
 
   result['meat'] = meat_toppings.length;
+
+  var cheese = ['cheddar_cheese', 'feta_cheese', 'asiago', 'provolone_cheese'];
   result['cheese'] = 0;
-  if (nonmeat_toppings.indexOf('cheddar_cheese') > -1) {
-    result['cheese']++;
-  };
-  if (nonmeat_toppings.indexOf('feta_cheese') > -1) {
-    result['cheese']++;
-  };
-  if (nonmeat_toppings.indexOf('asiago') > -1) {
-    result['cheese']++;
-  };
-  if (nonmeat_toppings.indexOf('provolone_cheese') > -1) {
-    result['cheese']++;
+  for (i = 0; i < cheese.length; i++) {
+    if (nonmeat_toppings.indexOf(cheese[i]) > -1) {
+      result['cheese']++;
+    };
   };
 
   result['olives'] = (nonmeat_toppings.indexOf('olives') > -1) ? 1 : 0;
   result['garlic'] = (nonmeat_toppings.indexOf('garlic') > -1) ? 1 : 0;
   result['mushrooms'] = (nonmeat_toppings.indexOf('mushrooms') > -1) ? 1 : 0;
+  result['sauce'] = (nonmeat_toppings.indexOf('hot_sauce') > -1) ? 1 : 0;
 
+  var fruit = ['pineapple', 'tomatoes'];
   result['fruit'] = 0;
-  if (nonmeat_toppings.indexOf('pineapple') > -1) {
-    result['fruit']++;
-  };
-  if (nonmeat_toppings.indexOf('tomatoes') > -1) {
-    result['fruit']++;
+  for (i = 0; i < fruit.length; i++) {
+    if (nonmeat_toppings.indexOf(fruit[i]) > -1) {
+      result['fruit']++;
+    };
   };
 
+  var veggies = ['onions', 'spinach'];
   result['veggies'] = 0;
-  if (nonmeat_toppings.indexOf('onions') > -1) {
-    result['veggies']++;
-  };
-  if (nonmeat_toppings.indexOf('spinach') > -1) {
-    result['veggies']++;
+  for (i = 0; i < veggies.length; i++) {
+    if (nonmeat_toppings.indexOf(veggies[i]) > -1) {
+      result['veggies']++;
+    };
   };
 
+  var peppers = ['banana_peppers', 'green_peppers', 'jalapeno_peppers', 'red_peppers'];
   result['peppers'] = 0;
-  if (nonmeat_toppings.indexOf('banana_peppers') > -1) {
-    result['peppers']++;
-  };
-  if (nonmeat_toppings.indexOf('green_peppers') > -1) {
-    result['peppers']++;
-  };
-  if (nonmeat_toppings.indexOf('jalapeno_peppers') > -1) {
-    result['peppers']++;
-  };
-  if (nonmeat_toppings.indexOf('red_peppers') > -1) {
-    result['peppers']++;
+  for (i = 0; i < peppers.length; i++) {
+    if (nonmeat_toppings.indexOf(peppers[i]) > -1) {
+      result['peppers']++;
+    };
   };
 
   console.log(result);
