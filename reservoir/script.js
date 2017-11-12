@@ -31,7 +31,9 @@ function get_data(url) {
         latest = get_latest(cur_data.value);
         global_gauge.update(latest.value);
         document.getElementById('latest').innerHTML = latest.date_time;
+        draw_highchart(cur_data);
         console.log('got it');
+        document.getElementById('processing').style.display = 'none';
       }
   }
   http.send();
@@ -49,6 +51,7 @@ function populate_reservoir() {
 };
 
 function update() {
+  document.getElementById('processing').style.display = 'inline';
   var id = document.getElementById('reservoir_selection');
   var days = document.getElementById('period');
   get_data(construct_url(id.value, days.value));
@@ -68,16 +71,16 @@ function fill_guage(num) {
 
 function get_latest(data) {
   var result = {};
-  result.date_time = data[0].dateTime;
-  result.value = data[0].value;
+  result.date_time = data[data.length - 1].dateTime;
+  result.value = data[data.length - 1].value;
 
-  for (i = 1; i < data.length; i++) {
-    var temp_date = data[i].dateTime;
-    if (temp_date >= result.date_time) {
-      result.date_time = temp_date;
-      result.value = data[i].value;
-    };
-  };
+  // for (i = 1; i < data.length; i++) {
+  //   var temp_date = data[i].dateTime;
+  //   if (temp_date >= result.date_time) {
+  //     result.date_time = temp_date;
+  //     result.value = data[i].value;
+  //   };
+  // };
   result.value = result.value / 1000;
   console.log(result);
   return result;
@@ -103,4 +106,62 @@ function parse_datetime(datetime) {
   var s = time[2].split('.')[0];
 
   return new Date(y, mon, d, h, min, s);
+};
+
+function draw_highchart(data) {
+  $(document).ready(function() {
+    var temp = [];
+    var title = {
+      text: 'Historical Graph'   
+    };
+
+    for (i = 0; i < data.value.length; i++) {
+      temp.push(data.value[i].dateTime);
+    };
+    var xAxis = {
+      categories: temp
+    };
+
+    var yAxis = {
+      title: {
+        text: 'Thousand Acre-Feet (TAF)'
+      },
+      plotLines: [{
+        value: 0,
+        width: 1,
+        color: '#808080'
+      }]
+    };   
+
+    var tooltip = {
+      valueSuffix: 'TAF'
+    };
+
+    // var legend = {
+    //   layout: 'vertical',
+    //   align: 'right',
+    //   verticalAlign: 'middle',
+    //   borderWidth: 0
+    // };
+
+    temp = [];
+    for (i = 0; i < data.value.length; i++) {
+      temp.push(data.value[i].value / 1000);
+    };
+    var series =  [{
+        name: data.name,
+        data: temp
+      } 
+    ];
+
+    var json = {};
+    json.title = title;
+    json.xAxis = xAxis;
+    json.yAxis = yAxis;
+    json.tooltip = tooltip;
+    // json.legend = legend;
+    json.series = series;
+
+    $('#highchart_container').highcharts(json);
+  });
 };
