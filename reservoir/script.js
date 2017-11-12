@@ -3,8 +3,9 @@ var cur_data = {};
 var global_gauge = '';
 
 function init() {
-  global_guage = fill_guage(55);
+  global_guage = fill_guage(0);
   populate_reservoir();
+  update();
   // get_data(construct_url('08313000', '7'));
 };
 
@@ -25,9 +26,11 @@ function get_data(url) {
       if(http.readyState == 4 && http.status == 200) {
         // console.log(JSON.stringify(http.responseText));
         cur_data = JSON.parse(http.responseText);
-        console.log(cur_data.value[0].dateTime instanceof String);
+        document.getElementById('rname').innerHTML = cur_data.name;
+        document.getElementById('rid').innerHTML = cur_data.id;
         latest = get_latest(cur_data.value);
         global_gauge.update(latest.value);
+        document.getElementById('latest').innerHTML = latest.date_time;
         console.log('got it');
       }
   }
@@ -53,23 +56,25 @@ function update() {
 
 function fill_guage(num) {
   var config1 = liquidFillGaugeDefaultSettings();
+  config1.minValue = 0;
+  config1.maxValue = 2000;
   config1.circleThickness = 0.1;
   config1.textVertPosition = 0.2;
   config1.waveAnimateTime = 1000;
   config1.waveRiseTime = 2000;
   config1.displayPercent = false;
-  global_gauge = loadLiquidFillGauge("fillgauge1", num, config1);
+  global_gauge = loadLiquidFillGauge("gauge", num, config1);
 };
 
 function get_latest(data) {
   var result = {};
-  result.latest = parse_datetime(String(data[0].dateTime));
+  result.date_time = data[0].dateTime;
   result.value = data[0].value;
 
   for (i = 1; i < data.length; i++) {
-    var temp_date = parse_datetime(String(data[i].dateTime));
-    if (temp_date >= result.latest) {
-      result.latest = temp_date;
+    var temp_date = data[i].dateTime;
+    if (temp_date >= result.date_time) {
+      result.date_time = temp_date;
       result.value = data[i].value;
     };
   };

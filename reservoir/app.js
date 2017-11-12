@@ -38,6 +38,7 @@ function process_info(data) {
   for (i = 0; i < data.value.timeSeries.length; i++) {
     if (data.value.timeSeries[i].variable.variableName == 'Reservoir storage, acre-ft') {
       result.name = data.value.timeSeries[i].sourceInfo.siteName;
+      result.id = data.value.timeSeries[i].sourceInfo.siteCode[0].value;
       result.latitude = data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.latitude;
       result.longitude = data.value.timeSeries[i].sourceInfo.geoLocation.geogLocation.longitude;
       result.value = data.value.timeSeries[i].values[0].value;
