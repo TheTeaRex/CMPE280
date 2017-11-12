@@ -9,6 +9,9 @@
     <script src='liquidFillGuage.js'></script>
     <script src='reservoir_list.json'></script>
     <script src='script.js'></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM">
+    </script>
   </head>
   <body onload="init()">
     <div class=container>
@@ -62,6 +65,10 @@
 
       <p>
 				<div id="highchart_container" style="width: 600px; height: 400px; margin: 0 auto"></div>
+      </p>
+
+      <p>
+        <div id="map"></div>
       </p>
 
       <footer>

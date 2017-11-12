@@ -32,8 +32,9 @@ function get_data(url) {
         global_gauge.update(latest.value);
         document.getElementById('latest').innerHTML = latest.date_time;
         draw_highchart(cur_data);
-        console.log('got it');
+        update_map(cur_data);
         document.getElementById('processing').style.display = 'none';
+        console.log('got it');
       }
   }
   http.send();
@@ -163,5 +164,33 @@ function draw_highchart(data) {
     json.series = series;
 
     $('#highchart_container').highcharts(json);
+  });
+};
+
+function update_map(data) {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 9,
+    center: {lat: data.latitude, lng: data.longitude}
+  });
+
+  var marker = new google.maps.Marker({
+    position: {lat: data.latitude, lng: data.longitude},
+    map: map
+  });
+
+	var contentString = '<p><b>Reservoir Name:</b> ' +
+		data.name +
+    '</p><p><b>Reservoir ID:</b> ' +
+    data.id +
+    '</p><p><b>Last Recorded Storage:</b> '+
+    data.value[data.value.length - 1].value +
+    'AF';
+
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
   });
 };
