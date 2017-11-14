@@ -1,0 +1,71 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.smaller_container {
+  width: 75%;
+  height: 400px;
+  margin: auto;
+  border: 1px solid;
+}
+
+header, footer {
+  padding: 1em;
+  clear: both;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+.left {
+  width: 30%;
+  float: left;
+}
+
+.right {
+  width: 70%;
+  float: left;
+}
+
+.image_container {
+  height: 300px;
+  width: 90%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.one {
+  margin: 70px auto 0px auto;
+}
+
+.two {
+  margin: 40px auto 0px auto;
+}
+
+.three {
+  margin: 40px auto 70px auto;
+}
+
+.button {
+  width: 170px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  background-color: green;
+  cursor: pointer;
+}
+
+.button-span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+img {
+  margin: auto;
+}
