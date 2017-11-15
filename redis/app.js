@@ -16,6 +16,17 @@ client.on("error", function (err) {
 app.use(express.static('public'));
 // app.use('/images', express.static('images'));
 
+app.get('/exists/:name', function (req, res) {
+  client.get(req.params.name, function(err, reply) {
+    if (!reply) {
+      res.send(JSON.stringify({'response': 'Database'}));
+    } else {
+      res.send(JSON.stringify({'response': 'Redis Cache'}));
+    };
+    res.end();
+  });
+});
+
 app.get('/images/:name', function (req, res) {
   res.set({
     'Cache-Control': 'no-cache, no-store, must-revalidate',
