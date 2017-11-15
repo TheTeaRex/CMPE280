@@ -1,0 +1,3 @@
+runs redis-server to start the server
+node app.js to run the web server
+browser localhost:3000 
