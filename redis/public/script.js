@@ -26,11 +26,14 @@ function init() {
 
 function load_picture(img) {
   document.getElementById('msg').style.display = 'none';
-  var image = document.getElementById('image');
+  document.getElementById('image').remove();
+  var image = document.createElement('img');
   var setting = translation[img];
   image.style.display = 'block';
   image.style.height = setting.height;
   image.style.width = setting.width;
   image.src = image_server + setting.filename;
   image.alt = setting.alt;
+  image.id = 'image';
+  document.getElementById('image_container').appendChild(image);
 };
