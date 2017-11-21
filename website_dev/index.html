@@ -12,6 +12,7 @@
     <script src="scripts/script.js"></script>
   </head>
   <body>
+    <!-- navigation bar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <a class="navbar-brand" href="#">
         <img src="images/pp_logo.png" alt="PixPerfect Logo" style="width:40px; height:40px;">
@@ -23,9 +24,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown">Product</a>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item">Mobile</a>
             <a class="dropdown-item">Big Data</a>
             <a class="dropdown-item">IoE/IoT</a>
+            <a class="dropdown-item">Mobile</a>
           </div>
         </li>
         <li class="nav-item">
@@ -43,5 +44,44 @@
         </li>
       </ul>
     </nav>
+
+    <div class="container">
+      <!-- Carousel -->
+      <div id="carousel_body" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#carousel_body" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel_body" data-slide-to="1"></li>
+          <li data-target="#carousel_body" data-slide-to="2"></li>
+          <li data-target="#carousel_body" data-slide-to="3"></li>
+          <li data-target="#carousel_body" data-slide-to="4"></li>
+        </ul>
+        <!-- Images -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/big_data.jpg" alt="Big Data">
+          </div>
+          <div class="carousel-item">
+            <img src="images/IOT.jpg" alt="IoT">
+          </div>
+          <div class="carousel-item">
+            <img src="images/mobile.jpg" alt="Mobile">
+          </div>
+          <div class="carousel-item">
+            <img src="images/smart_things.png" alt="Smart Things">
+          </div>
+          <div class="carousel-item">
+            <img src="images/machine_learning.jpg" alt="Machine Learning">
+          </div>
+        </div>
+        <!-- Left and Right controls -->
+        <a class="carousel-control-prev" href="#carousel_body" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#carousel_body" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+
   </body>
 </html>

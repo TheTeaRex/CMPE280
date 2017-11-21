@@ -5,3 +5,9 @@
 .nav-link {
   cursor: pointer;
 }
+
+.carousel-inner > .carousel-item > img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
