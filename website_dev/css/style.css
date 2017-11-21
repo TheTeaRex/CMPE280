@@ -1,0 +1,7 @@
+.dropdown-toggle::after {
+  display: none;
+}
+
+.nav-link {
+  cursor: pointer;
+}
