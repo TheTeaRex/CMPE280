@@ -118,10 +118,16 @@
         <div class="row">
           <div class="col-md-2">
             <!-- brochure and white paper -->
-            <div class="row h-100">
-              <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
-                <button type="button" class="btn btn-info btn-lg btn-block btn-more-vpadding">Brochure</button>
-                <button type="button" class="btn btn-info btn-lg btn-block btn-more-vpadding">White Paper</button>
+            <div>
+              <div class="row h-100">
+                <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding">Brochure</button>
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          data-toggle="modal"
+                          data-target="#white_paper_modal">
+                    White Paper
+                  </button>
+                </div>
               </div>
             </div>
             <!-- /brochure and white paper -->
@@ -135,24 +141,26 @@
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
-            <div class="row h-100">
-              <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
-                        title="Easy win for the customer!"
-                        data-toggle="popover"
-                        data-trigger="hover"
-                        data-placement="left"
-                        data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
-                  Easy Win!
-                </button>
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
-                        title="Just Better!"
-                        data-toggle="popover"
-                        data-trigger="hover"
-                        data-placement="left"
-                        data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
-                  Just Better!
-                </button>
+            <div>
+              <div class="row h-100">
+                <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          title="Easy win for the customer!"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="left"
+                          data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
+                    Easy Win!
+                  </button>
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          title="Just Better!"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="left"
+                          data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
+                    Just Better!
+                  </button>
+                </div>
               </div>
             </div>
             <!-- /customer accolades -->
@@ -177,6 +185,28 @@
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
+            <div>
+              <div class="row h-100">
+                <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          title="Easy win for the customer!"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="left"
+                          data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
+                    Easy Win!
+                  </button>
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          title="Just Better!"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="left"
+                          data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
+                    Just Better!
+                  </button>
+                </div>
+              </div>
+            </div>
             <!-- /customer accolades -->
           </div>
         </div>
@@ -198,6 +228,28 @@
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
+            <div>
+              <div class="row h-100">
+                <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          title="Easy win for the customer!"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="left"
+                          data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
+                    Easy Win!
+                  </button>
+                  <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                          title="Just Better!"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="left"
+                          data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
+                    Just Better!
+                  </button>
+                </div>
+              </div>
+            </div>
             <!-- /customer accolades -->
           </div>
         </div>
@@ -207,8 +259,41 @@
     </div>
     <!-- end of tab-content -->
 
-    <!-- modal -->
-    <!-- /modal -->
+    <!-- white paper modal -->
+    <div class="modal fade" id="white_paper_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- modal header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Download White Paper</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- /modal header -->
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="first">First Name:</label>
+                <input type="text" class="form-control" id="first" placeholder="Enter First Name" autofocus>
+              </div>
+              <div class="form-group">
+                <label for="last">Last Name:</label>
+                <input type="text" class="form-control" id="last" placeholder="Enter Last Name">
+              </div>
+              <div class="form-group">
+                <label for="first">email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+              </div>
+              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </form>
+          </div>
+          <!-- /modal body -->
+        </div>
+      </div>
+    </div>
+    <!-- /white paper modal -->
 
     <hr>
 
