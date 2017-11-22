@@ -49,40 +49,55 @@
     <div class="tab-content">
       <!-- home page -->
       <div class="tab-pane container active" id="home">
-        <!-- Carousel -->
+        <!-- Carousel Body -->
         <div id="carousel_body" class="carousel slide" data-ride="carousel">
-          <ul class="carousel-indicators">
-            <li data-target="#carousel_body" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel_body" data-slide-to="1"></li>
-            <li data-target="#carousel_body" data-slide-to="2"></li>
-            <li data-target="#carousel_body" data-slide-to="3"></li>
-            <li data-target="#carousel_body" data-slide-to="4"></li>
-          </ul>
-          <!-- Images -->
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="images/big_data.jpg" alt="Big Data">
+          <!-- Carousel Outter -->
+          <div class="carousel-outter">
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/big_data.jpg" alt="Big Data">
+              </div>
+              <div class="carousel-item">
+                <img src="images/IOT.jpg" alt="IoT">
+              </div>
+              <div class="carousel-item">
+                <img src="images/mobile.jpg" alt="Mobile">
+              </div>
+              <div class="carousel-item">
+                <img src="images/smart_things.png" alt="Smart Things">
+              </div>
+              <div class="carousel-item">
+                <img src="images/machine_learning.jpg" alt="Machine Learning">
+              </div>
             </div>
-            <div class="carousel-item">
-              <img src="images/IOT.jpg" alt="IoT">
-            </div>
-            <div class="carousel-item">
-              <img src="images/mobile.jpg" alt="Mobile">
-            </div>
-            <div class="carousel-item">
-              <img src="images/smart_things.png" alt="Smart Things">
-            </div>
-            <div class="carousel-item">
-              <img src="images/machine_learning.jpg" alt="Machine Learning">
-            </div>
+            <!-- Left and Right controls -->
+            <a class="carousel-control-prev" href="#carousel_body" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#carousel_body" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
           </div>
-          <!-- Left and Right controls -->
-          <a class="carousel-control-prev" href="#carousel_body" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </a>
-          <a class="carousel-control-next" href="#carousel_body" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </a>
+          <!-- end of carousel outter -->
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel_body" data-slide-to="0" class="active">
+              <img src="images/big_data.jpg" alt="" class="img-thumbnail">
+            </li>
+            <li data-target="#carousel_body" data-slide-to="1">
+              <img src="images/IOT.jpg" alt="" class="img-thumbnail">
+            </li>
+            <li data-target="#carousel_body" data-slide-to="2">
+              <img src="images/mobile.jpg" alt="" class="img-thumbnail">
+            </li>
+            <li data-target="#carousel_body" data-slide-to="3">
+              <img src="images/smart_things.png" alt="" class="img-thumbnail">
+            </li>
+            <li data-target="#carousel_body" data-slide-to="4">
+              <img src="images/machine_learning.jpg" alt="" class="img-thumbnail">
+            </li>
+          </ol>
         </div>
         <!-- end of carousel_body -->
       </div>
