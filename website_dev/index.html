@@ -120,7 +120,11 @@
             <!-- brochure and white paper -->
             <div class="row h-100">
               <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding">Brochure</button>
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                        data-toggle="modal"
+                        data-target="#brochure_modal">
+                  Brochure
+                </button>
                 <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
                         data-toggle="modal"
                         data-target="#white_paper_modal">
@@ -178,6 +182,33 @@
             Gartner defines Internet of Things "is the network of physical objects that contain embedded technology to communicate and sense or interact with their internal states or the external environment."
             As per International Data Corporation (IDC) press release "The Internet of Things Is Poised to Change Everything", The Internet of Things (IoT) represents a new construct in the information and communications technology (ICT) world that is occupying the minds of IT vendors, service providers, and systems integrators as it represents huge potential for new streams of revenue and new customers.
             </p>
+            <!-- jumbotron -->
+            <div class="jumbotron">
+              <h5 class="text-center">Our Offer Price</h5>
+              <p>
+              <div class="row">
+                <div class="col-md-4 offset-md-1">
+                  <div class="card bg-dark text-white">
+                    <div class="card-body">
+                      Number of Sensors: 30
+                      Data Stream: 30kb/sec
+                      Price: $30/month
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 offset-md-2">
+                  <div class="card bg-dark text-white">
+                    <div class="card-body">
+                      Number of Sensors: 60
+                      Data Stream: 50kb/sec
+                      Price: $50/month
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </p>
+            </div>
+            <!-- /jumbotron -->
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
@@ -199,6 +230,7 @@
             <p class="text-justify">
             The use of mobile Internet technology is already widespread, with more than 1.1 billion people currently using smartphones and tablets. The rapid and enthusiastic adoption of these devices has demonstrated that mobile Internet technology is far more than just another way to go online and browse. Equipped with Internet-enabled mobile computing devices and apps for almost any task, people increasingly go about their daily routines using new ways to understand, perceive, and interact with the world. In a remarkably short time, mobile Internet capability has become a feature in the lives of millions of people, who have developed a stronger attachment to their smartphones and tablets than to any previous computer technology.
             </p>
+            <img id="mobile_development_image" src="images/mobile_development.jpg" alt="mobile development">
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
@@ -210,6 +242,27 @@
       <!-- /product page -->
     </div>
     <!-- end of tab-content -->
+
+    <!-- brochure modal -->
+    <div class="modal fade" id="brochure_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- modal header -->
+          <div class="modal-header">
+            <h4 class="modal-title">The Brochure</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- /modal header -->
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <img src="images/brochure.jpg" alt="brochure" width="100%">
+          </div>
+          <!-- /modal body -->
+        </div>
+      </div>
+    </div>
+    <!-- /brochure modal -->
 
     <!-- white paper modal -->
     <div class="modal fade" id="white_paper_modal">

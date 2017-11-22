@@ -54,16 +54,16 @@
 }
 
 .popover-header {
-  background: #1414ff;
+  background: #428bca;
   color: white;
 }
 
 .popover-body {
-  background: #4ac5ce;
+  background: #5bc0de;
   color: white;
 }
 
-#big_data_image {
+#big_data_image{
   width:100%;
   -webkit-animation-name: zooom;
   -webkit-animation-duration: 3s;
@@ -79,4 +79,20 @@
 @keyframes zooom {
   from {width: 0%;}
   to {width: 100%;}
+}
+
+#mobile_development_image{
+  width:100%;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 3s;
+  animation-name: spin;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes spin {
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+}
+
+@keyframes spin {
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
 }
