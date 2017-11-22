@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-  $('div').click(function() {
-    alert('hello world');
+  $('[data-toggle="popover"]').popover();
+  $('.dropdown-item').bind('click', function(event) {
   });
 });
