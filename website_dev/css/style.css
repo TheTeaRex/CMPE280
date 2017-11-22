@@ -24,6 +24,7 @@
 
 .carousel-indicators li {
   background-color: transparent;
+  -webkit-border-radius: 0;
   border-radius: 0;
   display: inline-block;
   height: auto;
@@ -45,4 +46,37 @@
 
 .carsousel-outter {
   position: relative;
+}
+
+.btn-more-vpadding {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.popover-header {
+  background: #1414ff;
+  color: white;
+}
+
+.popover-body {
+  background: #4ac5ce;
+  color: white;
+}
+
+#big_data_image {
+  width:100%;
+  -webkit-animation-name: zooom;
+  -webkit-animation-duration: 3s;
+  animation-name: zooom;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes zooom {
+  from {width: 0%;}
+  to {width: 100%;}
+}
+
+@keyframes zooom {
+  from {width: 0%;}
+  to {width: 100%;}
 }
