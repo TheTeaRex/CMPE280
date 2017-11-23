@@ -63,6 +63,23 @@
   color: white;
 }
 
+.vpadding {
+  padding: 10% 0;
+}
+
+#santa_clara,
+#south_san_jose,
+#mountain_view,
+#milpitas {
+  height: 500px;
+  width: 100%;
+}
+
+#business_process_image {
+  width: 100%;
+  border: solid 1px;
+}
+
 #big_data_image{
   width:100%;
   -webkit-animation-name: zooom;
