@@ -17,6 +17,51 @@ var popovers = {
   '.cpo_pop': 'files/cpo_desc.txt'
 }
 
+var locations = {
+  'santa_clara': {
+    'id': 'santa_clara',
+    'map': 'santa_clara_map',
+    'street': '2605 The Alameda',
+    'city': 'Santa Clara',
+    'state': 'CA',
+    'zip': '95050',
+    'lat': 37.345346,
+    'lng': -121.936433
+  },
+  'mountain_view': {
+    'id': 'mountain_view',
+    'map': 'mountain_view_map',
+    'street': '570 N Shoreline Blvd',
+    'city': 'Mountain View',
+    'state': 'CA',
+    'zip': '94043',
+    'lat': 37.403028,
+    'lng': -122.079240
+  },
+  'south_san_jose': {
+    'id': 'south_san_jose',
+    'map': 'south_san_jose_map',
+    'street': '4950 Almaden Expy',
+    'city': 'San Jose',
+    'state': 'CA',
+    'zip': '95118',
+    'lat': 37.322822,
+    'lng': -121.912135
+  },
+  'milpitas': {
+    'id': 'milpitas',
+    'map': 'milpitas_map',
+    'street': '555 E Calaveras Blvd',
+    'city': 'Milpitas',
+    'state': 'CA',
+    'zip': '95035',
+    'lat': 37.434960,
+    'lng': -121.898005
+  }
+};
+
+var delay_load = 500;
+
 var server_form_submission = 'http://localhost:3000/';
 
 $(document).ready(function() {
@@ -65,10 +110,6 @@ $(document).ready(function() {
       });
     }
   });
-
-  // loading the google maps
-  var locations = ['#santa_clara', '#south_san_jose', '#mountain_view', '#milpitas']
-  // $('#santa_clara_map').attr('src', 'https://www.google.com/maps/embed/v1/view?key=AIzaSyBNHiPabrQaE7rYgoivlDOP9GDtkIGyGOQ&center=-33.8569,151.2152&zoom=18'); 
 
   $('#submit').bind('click', function(event) {
     var data = {
@@ -132,19 +173,44 @@ $(document).ready(function() {
 
 });
 
-// function initMap() {
-//   // var locations = ['#santa_clara', '#south_san_jose', '#mountain_view', '#milpitas'];
-//   var map = new google.maps.Map(document.getElementById('santa_clara'), {
-//     zoom: 5,
-//     center: {lat: 37.328933, lng: -121.945702}
-//   });
-//   var marker = new google.maps.Marker({
-//     position: {lat: 37.345289, lng: -121.936751},
-//     map: map
-//   });
-//   $("#santa_clara").on("shown.bs.tab", function () {
-//         var center = map.getCenter();
-//         google.maps.event.trigger(map, "resize");
-//         map.setCenter(center);
-//   });
-// };
+function initMap() {
+  //unfortunately bootstrap doesn't play well with google map
+  //so there is not point on actually initializing the map here
+};
+
+function initMapSecond(id) {
+  var loc = {
+    'id': id,
+    'obj': document.getElementById(locations[id].map),
+    'map': locations[id].map,
+    'lat': locations[id].lat,
+    'lng': locations[id].lng,
+    'street': locations[id].street,
+    'city': locations[id].city,
+    'state': locations[id].state,
+    'zip': locations[id].zip
+  }
+  setTimeout(function () {
+    create_map(loc);
+  }, delay_load);
+};
+
+function create_map(item) {
+  var address = item.street + '<br>' + item.city + ', ' + item.state + ' ' + item.zip
+  var annotation = '<p><b>Address:</b><br>' + address + '</p>';
+  $('#' + item.id + ' .address p').html(address);
+  var map = new google.maps.Map(item.obj, {
+    zoom: 15,
+    center: {lat: item.lat, lng: item.lng}
+  });
+  var marker = new google.maps.Marker({
+    position: {lat: item.lat, lng: item.lng},
+    map: map
+  });
+  var infowindow = new google.maps.InfoWindow({
+    content: annotation
+  });
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+};
