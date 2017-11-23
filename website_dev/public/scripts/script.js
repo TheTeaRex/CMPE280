@@ -61,8 +61,24 @@ $(document).ready(function() {
       url: server_form_submission,
       data: JSON.stringify(data),
       contentType: 'application/json',
-      success: function(data) {
-        console.log('done');
+      success: function(result) {
+        console.log(result.result);
+        $('#form_start').hide();
+        $('#form_result').show();
+        $('#form_result').text(result.result.message);
+        if (result.result.code == 0) {
+          $('#form_result').css('color', 'green');
+        } else {
+          $('#form_result').css('color', 'red');
+        };
+        $('#first').val('');
+        $('#last').val('');
+        $('#email').val('');
+        setTimeout(function(){
+          $('#white_paper_modal').modal('toggle');
+          $('#form_start').show();
+          $('#form_result').hide();
+        }, 2000);
       }
     });
   });

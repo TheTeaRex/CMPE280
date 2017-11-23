@@ -29,29 +29,50 @@ function create_table() {
 	// db.close();
 }
 
-function insert_data(data) {
+function insert_data(data, callback) {
   console.log(data);
   query = 'INSERT INTO user_info VALUES ('
   query = query + '"' + data.email + '"' + ', ';
   query = query + '"' + data.first + '"' + ', ';
   query = query + '"' + data.last + '"' + ')';
   console.log(query);
-  db.run(query);
+  db.run(query, function(err) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null);
+    };
+  });
 }
 
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.post('/submit', function(req, res) {
-  insert_data(req.body);
   res.writeHead(200, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'content-type',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
   });
-  res.write(JSON.stringify({'result': 'Successfully recorded in database'}));
-  res.end();
+  insert_data(req.body, function(err) {
+    var msg;
+    var code;
+    if (err) {
+      if (err.code == 'SQLITE_CONSTRAINT') {
+        msg = 'Email exists in database already!';
+        code = 5;
+      } else {
+        msg = 'Operation failed, please try again';
+        code = 255;
+      };
+    } else {
+      msg = 'Successfully recorded in database';
+      code = 0;
+    };
+    res.write(JSON.stringify({'result': {'message': msg, 'code': code}}));
+    res.end();
+  });
 });
 
 create_table();
