@@ -11,6 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="scripts/script.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM&callback=initMap">
+    </script>
   </head>
   <body>
     <!-- navigation bar -->
@@ -70,7 +73,7 @@
                     <img src="images/mobile.jpg" alt="Mobile">
                   </div>
                   <div class="carousel-item">
-                    <img src="images/smart_things.png" alt="Smart Things">
+                    <img src="images/smart_things.jpg" alt="Smart Things">
                   </div>
                   <div class="carousel-item">
                     <img src="images/machine_learning.jpg" alt="Machine Learning">
@@ -97,7 +100,7 @@
                   <img src="images/mobile.jpg" alt="" class="img-thumbnail">
                 </li>
                 <li data-target="#carousel_body" data-slide-to="3">
-                  <img src="images/smart_things.png" alt="" class="img-thumbnail">
+                  <img src="images/smart_things.jpg" alt="" class="img-thumbnail">
                 </li>
                 <li data-target="#carousel_body" data-slide-to="4">
                   <img src="images/machine_learning.jpg" alt="" class="img-thumbnail">
@@ -136,29 +139,27 @@
           </div>
           <div class="col-md-8">
             <h3>Big Data</h3>
-            <p class="text-justify">
-            According to IDC's prediction in 2013, the market for big data will reach $16.1 billion in 2014, growing 6 times faster than the overall IT market. This kind of business analysis reports brings great business opportunities and strong research interests amongst both academic and industry communities. Recently, our Big Data product offerings are organized focusing on Big Data computing, Big Data Sciences and Analytics, and Big Data Technology and Engineering.
-            </p>
-            <img id="big_data_image" src="images/big_analytics.png" alt="analytics">
+            <p class="text-justify" id="big_data_paragraph"></p>
+            <img id="big_data_image" src="images/big_analytics.jpg" alt="analytics">
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
             <div class="row h-100 vpadding">
               <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding right1"
                         title="Easy win for the customer!"
                         data-toggle="popover"
                         data-trigger="hover"
                         data-placement="left"
-                        data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
+                        data-content="">
                   Easy Win!
                 </button>
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding right2"
                         title="Just Better!"
                         data-toggle="popover"
                         data-trigger="hover"
                         data-placement="left"
-                        data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
+                        data-content="">
                   Just Better!
                 </button>
               </div>
@@ -192,10 +193,7 @@
           </div>
           <div class="col-md-8">
             <h3>Internet of Things</h3>
-            <p class="text-justify">
-            Gartner defines Internet of Things "is the network of physical objects that contain embedded technology to communicate and sense or interact with their internal states or the external environment."
-            As per International Data Corporation (IDC) press release "The Internet of Things Is Poised to Change Everything", The Internet of Things (IoT) represents a new construct in the information and communications technology (ICT) world that is occupying the minds of IT vendors, service providers, and systems integrators as it represents huge potential for new streams of revenue and new customers.
-            </p>
+            <p class="text-justify" id="iot_paragraph"></p>
             <!-- jumbotron -->
             <div class="jumbotron">
               <h5 class="text-center">Our Offer Price</h5>
@@ -226,20 +224,20 @@
             <!-- customer accolades -->
             <div class="row h-100 vpadding">
               <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding right1"
                         title="Easy win for the customer!"
                         data-toggle="popover"
                         data-trigger="hover"
                         data-placement="left"
-                        data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
+                        data-content="">
                   Easy Win!
                 </button>
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding right2"
                         title="Just Better!"
                         data-toggle="popover"
                         data-trigger="hover"
                         data-placement="left"
-                        data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
+                        data-content="">
                   Just Better!
                 </button>
               </div>
@@ -273,29 +271,27 @@
           </div>
           <div class="col-md-8">
             <h3>Mobile</h3>
-            <p class="text-justify">
-            The use of mobile Internet technology is already widespread, with more than 1.1 billion people currently using smartphones and tablets. The rapid and enthusiastic adoption of these devices has demonstrated that mobile Internet technology is far more than just another way to go online and browse. Equipped with Internet-enabled mobile computing devices and apps for almost any task, people increasingly go about their daily routines using new ways to understand, perceive, and interact with the world. In a remarkably short time, mobile Internet capability has become a feature in the lives of millions of people, who have developed a stronger attachment to their smartphones and tablets than to any previous computer technology.
-            </p>
+            <p class="text-justify" id="mobile_paragraph"></p>
             <img id="mobile_development_image" src="images/mobile_development.jpg" alt="mobile development">
           </div>
           <div class="col-md-2">
             <!-- customer accolades -->
             <div class="row h-100 vpadding">
               <div class="col-lg-10 offset-lg-1" style="display: table-cell;">
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding right1"
                         title="Easy win for the customer!"
                         data-toggle="popover"
                         data-trigger="hover"
                         data-placement="left"
-                        data-content="Easy win for the customer. My buddy Steve actually just went through this experience for the first time. He’s had a Macbook for three years but never had a problem until now. I told him about the Genius Bar, he looked suspicious (like it was too good to be true) but gave it a crack. I saw him the next day with his Macbook repaired – 24 hour turnaround on a broken hard drive – now that’s a good customer experience!">
+                        data-content="">
                   Easy Win!
                 </button>
-                <button class="btn btn-info btn-lg btn-block btn-more-vpadding"
+                <button class="btn btn-info btn-lg btn-block btn-more-vpadding right2"
                         title="Just Better!"
                         data-toggle="popover"
                         data-trigger="hover"
                         data-placement="left"
-                        data-content="The Genuis Bar in combination with a focus on the customers’ needs has helped Apple cut through and capture a whole of lot of market share from the likes of Microsoft and Sony.">
+                        data-content="">
                   Just Better!
                 </button>
               </div>
@@ -310,25 +306,137 @@
       <!-- about us -->
       <!-- management -->
       <div class="tab-pane fade" id="management">
-        management
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h3>Management</h3>
+            <p class="text-justify" id="management_paragraph"></p>
+            <h4 class="text-center">Meet the Team!</h4>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="ceo_pop"
+                     title="Chief Executive Officer"
+                     data-toggle="popover"
+                     data-trigger="hover"
+                     data-placement="right"
+                     data-content="">
+                  <div class="card">
+                    <img class="card-img-top" src="images/ceo.jpg" alt="ceo" style="width=100%">
+                    <div class="card-body">
+                      <h5 class="card-titlet">Mark Zuckerberg</h5>
+                      <p class="card-text">Chief Executive Officer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="coo_pop"
+                     title="Chief Operating Officer"
+                     data-toggle="popover"
+                     data-trigger="hover"
+                     data-placement="left"
+                     data-content="">
+                  <div class="card">
+                    <img class="card-img-top" src="images/coo.jpg" alt="coo" style="width=100%">
+                    <div class="card-body">
+                      <h5 class="card-titlet">Sheryl Sandberg</h5>
+                      <p class="card-text">Chief Operating Officer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="cfo_pop"
+                     title="Chief Financial Officer"
+                     data-toggle="popover"
+                     data-trigger="hover"
+                     data-placement="right"
+                     data-content="">
+                  <div class="card">
+                    <img class="card-img-top" src="images/cfo.jpg" alt="cfo" style="width=100%">
+                    <div class="card-body">
+                      <h5 class="card-titlet">Dave Wehner</h5>
+                      <p class="card-text">Chief Financial Officer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 offset-md-2">
+                <div class="cto_pop"
+                     title="Chief Technology Officer"
+                     data-toggle="popover"
+                     data-trigger="hover"
+                     data-placement="right"
+                     data-content="">
+                  <div class="card">
+                    <img class="card-img-top" src="images/cto.jpg" alt="cto" style="width=100%">
+                    <div class="card-body">
+                      <h5 class="card-titlet">Mike Schroepfer</h5>
+                      <p class="card-text">Chief Technology Officer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 offset-md-1">
+                <div class="cpo_pop"
+                     title="Chief Product Officer"
+                     data-toggle="popover"
+                     data-trigger="hover"
+                     data-placement="left"
+                     data-content="">
+                  <div class="card">
+                    <img class="card-img-top" src="images/cpo.jpg" alt="cpo" style="width=100%">
+                    <div class="card-body">
+                      <h5 class="card-titlet">Chris Cox</h5>
+                      <p class="card-text">Chief Product Officer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
       <!-- /management -->
 
       <!-- Code of Conduct -->
       <div class="tab-pane fade" id="coc">
-        code_of_conduct
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h3>Code Of Conduct</h3>
+            <p class="text-justify" id="cc_paragraph"></p>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
       <!-- /Code of Conduct -->
 
       <!-- Business Process -->
       <div class="tab-pane fade" id="bp">
-        business_process
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h3>Business Process</h3>
+            <p class="text-justify" id="bp_paragraph"></p>
+            <img src="images/business_process.jpg" alt="business process" id="business_process_image">
+          </div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
       <!-- /Business Process -->
 
       <!-- Locations -->
       <div class="tab-pane fade" id="locations">
-        locations
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h3>Locations</h3>
+            <div id="santa_clara"></div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
       <!-- /Locations -->
 
@@ -349,9 +457,7 @@
           <div class="modal-header">
             <h4 class="modal-title">The Brochure</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <!-- /modal header -->
-
+          </div> <!-- /modal header --> 
           <!-- modal body -->
           <div class="modal-body">
             <img src="images/brochure.jpg" alt="brochure" width="100%">
@@ -385,10 +491,10 @@
                 <input type="text" class="form-control" id="last" placeholder="Enter Last Name">
               </div>
               <div class="form-group">
-                <label for="first">email:</label>
+                <label for="first">Email:</label>
                 <input type="email" class="form-control" id="email" placeholder="Enter Email">
               </div>
-              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary" onclick="return false">Submit</button>
               <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
           </div>
@@ -418,7 +524,9 @@
           </div>
           <!-- end of twitter container -->
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+          <p class="small" style="color: #808080;">&copy; PixPerfect 2017</p>
+        </div>
       </div>
       <!-- /row -->
     </footer>
