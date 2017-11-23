@@ -51,8 +51,16 @@ $(document).ready(function() {
     type: 'GET',
     url: server_form_submission + 'getBlogEntries',
     success: function(results) {
+      var toggle = 0;
       $.each(results, function(index, item) {
-        var new_li = $('<li></li>').addClass('list-group-item').text(item.entry + ' - ' + item.time)
+        var new_li;
+        if (toggle == 0) {
+          new_li = $('<li></li>').addClass('list-group-item').addClass('list-group-item-dark').text(item.entry + ' - ' + item.time)
+          toggle = 1;
+        } else {
+          new_li = $('<li></li>').addClass('list-group-item').text(item.entry + ' - ' + item.time)
+          toggle = 0;
+        };
         $('#entry_list').append(new_li);
       });
     }
@@ -110,7 +118,12 @@ $(document).ready(function() {
       contentType: 'application/json',
       success: function(result) {
         console.log(result);
-        var new_li = $('<li></li>').addClass('list-group-item').text(data.entry + ' - ' + data.time)
+        var new_li;
+        if ($('#entry_list li:first').hasClass('list-group-item-dark')) {
+          new_li = $('<li></li>').addClass('list-group-item').text(data.entry + ' - ' + data.time)
+        } else {
+          new_li = $('<li></li>').addClass('list-group-item').addClass('list-group-item-dark').text(data.entry + ' - ' + data.time)
+        };
         $('#entry_list').prepend(new_li);
         $('#entry').val('');
       }
