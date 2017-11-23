@@ -17,6 +17,8 @@ var popovers = {
   '.cpo_pop': 'files/cpo_desc.txt'
 }
 
+var server_form_submission = 'http://localhost:3000/submit';
+
 $(document).ready(function() {
   $('[data-toggle="popover"]').popover();
 
@@ -48,7 +50,21 @@ $(document).ready(function() {
   var locations = ['#santa_clara', '#south_san_jose', '#mountain_view', '#milpitas']
   // $('#santa_clara_map').attr('src', 'https://www.google.com/maps/embed/v1/view?key=AIzaSyBNHiPabrQaE7rYgoivlDOP9GDtkIGyGOQ&center=-33.8569,151.2152&zoom=18'); 
 
-  $('.dropdown-item').bind('click', function(event) {
+  $('#submit').bind('click', function(event) {
+    var data = {
+      'first': $('#first').val(),
+      'last': $('#last').val(),
+      'email': $('#email').val()
+    };
+    $.ajax({
+      type: 'POST',
+      url: server_form_submission,
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('done');
+      }
+    });
   });
 });
 

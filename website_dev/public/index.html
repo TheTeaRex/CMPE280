@@ -40,7 +40,7 @@
             <a class="dropdown-item" data-toggle="tab" href="#coc">Code of Conduct</a>
             <a class="dropdown-item" data-toggle="tab" href="#bp">Business Process</a>
             <a class="dropdown-item" data-toggle="tab" href="#locations">Locations</a>
-            <a class="dropdown-item" data-toggle="tab" href="#contacts">Contacts</a>
+            <a class="dropdown-item" data-toggle="tab" href="#contacts">Contact Us</a>
           </div>
         </li>
         <li class="nav-item">
@@ -442,7 +442,15 @@
 
       <!-- Contacts -->
       <div class="tab-pane fade" id="contacts">
-        contacts
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h3>Got Questions??</h3>
+            <img src="images/contact.jpg" alt="contact us" style="width: 100%;">
+            <img src="images/contact_methods.jpg" alt="contact methods" style="width: 100%;">
+          </div>
+          <div class="col-md-2"></div>
+        </div>
       </div>
       <!-- /Contacts -->
       <!-- /about us -->
@@ -481,20 +489,20 @@
 
           <!-- modal body -->
           <div class="modal-body">
-            <form>
+            <form id="info_form">
               <div class="form-group">
                 <label for="first">First Name:</label>
-                <input type="text" class="form-control" id="first" placeholder="Enter First Name" autofocus>
+                <input type="text" class="form-control" id="first" placeholder="Enter First Name" autofocus required>
               </div>
               <div class="form-group">
                 <label for="last">Last Name:</label>
-                <input type="text" class="form-control" id="last" placeholder="Enter Last Name">
+                <input type="text" class="form-control" id="last" placeholder="Enter Last Name" required>
               </div>
               <div class="form-group">
                 <label for="first">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
               </div>
-              <button class="btn btn-primary" onclick="return false">Submit</button>
+              <button class="btn btn-primary" onclick="return false" id="submit">Submit</button>
               <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </form>
           </div>
