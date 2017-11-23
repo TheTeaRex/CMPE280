@@ -67,10 +67,10 @@
   padding: 10% 0;
 }
 
-#santa_clara,
-#south_san_jose,
-#mountain_view,
-#milpitas {
+#santa_clara_map,
+#south_san_jose_map,
+#mountain_view_map,
+#milpitas_map {
   height: 500px;
   width: 100%;
 }

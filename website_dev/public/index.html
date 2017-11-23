@@ -11,9 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="scripts/script.js"></script>
-    <!-- <script async defer -->
-    <!--   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM&callback=initMap"> -->
-    <!-- </script> -->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM&callback=initMap">
+    </script>
   </head>
   <body>
     <!-- navigation bar -->
@@ -39,7 +39,7 @@
             <a class="dropdown-item" data-toggle="tab" href="#management">Management</a>
             <a class="dropdown-item" data-toggle="tab" href="#coc">Code of Conduct</a>
             <a class="dropdown-item" data-toggle="tab" href="#bp">Business Process</a>
-            <a class="dropdown-item" data-toggle="tab" href="#locations">Locations</a>
+            <a class="dropdown-item" data-toggle="tab" href="#locations" onclick="initMapSecond('santa_clara')">Locations</a>
             <a class="dropdown-item" data-toggle="tab" href="#contacts">Contact Us</a>
           </div>
         </li>
@@ -433,7 +433,47 @@
           <div class="col-md-2"></div>
           <div class="col-md-8">
             <h3>Locations</h3>
-            <div id="santa_clara"></div>
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#santa_clara" onclick="initMapSecond('santa_clara')">Santa Clara</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " data-toggle="pill" href="#south_san_jose" onclick="initMapSecond('south_san_jose')">South San Jose</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " data-toggle="pill" href="#mountain_view" onclick="initMapSecond('mountain_view')">Mountain View</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " data-toggle="pill" href="#milpitas" onclick="initMapSecond('milpitas')">Milpitas</a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane active" id="santa_clara">
+                <div class="address">
+                  <p></p>
+                  <div id="santa_clara_map"></div>
+                </div>
+              </div>
+              <div class="tab-pane" id="south_san_jose">
+                <div class="address">
+                  <p></p>
+                  <div id="south_san_jose_map"></div>
+                </div>
+              </div>
+              <div class="tab-pane" id="mountain_view">
+                <div class="address">
+                  <p></p>
+                  <div id="mountain_view_map"></div>
+                </div>
+              </div>
+              <div class="tab-pane" id="milpitas">
+                <div class="address">
+                  <p></p>
+                  <div id="milpitas_map"></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-md-2"></div>
         </div>
