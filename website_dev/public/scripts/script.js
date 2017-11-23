@@ -17,7 +17,7 @@ var popovers = {
   '.cpo_pop': 'files/cpo_desc.txt'
 }
 
-var server_form_submission = 'http://localhost:3000/submit';
+var server_form_submission = 'http://localhost:3000/';
 
 $(document).ready(function() {
   $('[data-toggle="popover"]').popover();
@@ -46,6 +46,18 @@ $(document).ready(function() {
     });
   });
 
+  // loading the blog entrys
+  $.ajax({
+    type: 'GET',
+    url: server_form_submission + 'getBlogEntries',
+    success: function(results) {
+      $.each(results, function(index, item) {
+        var new_li = $('<li></li>').addClass('list-group-item').text(item.entry + ' - ' + item.time)
+        $('#entry_list').append(new_li);
+      });
+    }
+  });
+
   // loading the google maps
   var locations = ['#santa_clara', '#south_san_jose', '#mountain_view', '#milpitas']
   // $('#santa_clara_map').attr('src', 'https://www.google.com/maps/embed/v1/view?key=AIzaSyBNHiPabrQaE7rYgoivlDOP9GDtkIGyGOQ&center=-33.8569,151.2152&zoom=18'); 
@@ -58,15 +70,15 @@ $(document).ready(function() {
     };
     $.ajax({
       type: 'POST',
-      url: server_form_submission,
+      url: server_form_submission + 'submit',
       data: JSON.stringify(data),
       contentType: 'application/json',
       success: function(result) {
-        console.log(result.result);
+        console.log(result);
         $('#form_start').hide();
         $('#form_result').show();
-        $('#form_result').text(result.result.message);
-        if (result.result.code == 0) {
+        $('#form_result').text(result.message);
+        if (result.code == 0) {
           $('#form_result').css('color', 'green');
         } else {
           $('#form_result').css('color', 'red');
@@ -82,21 +94,44 @@ $(document).ready(function() {
       }
     });
   });
+
+  $('#submitEntry').bind('click', function(event) {
+    var dt = new Date();
+    var time = dt.getFullYear() + '/' + (dt.getMonth() + 1) + '/' + dt.getDate() + ' ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+    var data = {
+      'entry': $('#entry').val(),
+      'time': time
+    };
+    console.log(data);
+    $.ajax({
+      type: 'POST',
+      url: server_form_submission + 'blogSubmit',
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: function(result) {
+        console.log(result);
+        var new_li = $('<li></li>').addClass('list-group-item').text(data.entry + ' - ' + data.time)
+        $('#entry_list').prepend(new_li);
+        $('#entry').val('');
+      }
+    });
+  });
+
 });
 
-function initMap() {
-  // var locations = ['#santa_clara', '#south_san_jose', '#mountain_view', '#milpitas'];
-  var map = new google.maps.Map(document.getElementById('santa_clara'), {
-    zoom: 5,
-    center: {lat: 37.328933, lng: -121.945702}
-  });
-  var marker = new google.maps.Marker({
-    position: {lat: 37.345289, lng: -121.936751},
-    map: map
-  });
-  $("#santa_clara").on("shown.bs.tab", function () {
-        var center = map.getCenter();
-        google.maps.event.trigger(map, "resize");
-        map.setCenter(center);
-  });
-};
+// function initMap() {
+//   // var locations = ['#santa_clara', '#south_san_jose', '#mountain_view', '#milpitas'];
+//   var map = new google.maps.Map(document.getElementById('santa_clara'), {
+//     zoom: 5,
+//     center: {lat: 37.328933, lng: -121.945702}
+//   });
+//   var marker = new google.maps.Marker({
+//     position: {lat: 37.345289, lng: -121.936751},
+//     map: map
+//   });
+//   $("#santa_clara").on("shown.bs.tab", function () {
+//         var center = map.getCenter();
+//         google.maps.event.trigger(map, "resize");
+//         map.setCenter(center);
+//   });
+// };

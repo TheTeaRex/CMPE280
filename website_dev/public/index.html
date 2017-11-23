@@ -11,9 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="scripts/script.js"></script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM&callback=initMap">
-    </script>
+    <!-- <script async defer -->
+    <!--   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KPZwnEOWbpRewTZojkHj-V3H1Xwc7FM&callback=initMap"> -->
+    <!-- </script> -->
   </head>
   <body>
     <!-- navigation bar -->
@@ -44,7 +44,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Blog</a>
+          <a class="nav-link" data-toggle="tab" href="#blog">Blog</a>
         </li>
       </ul>
     </nav>
@@ -454,6 +454,28 @@
       </div>
       <!-- /Contacts -->
       <!-- /about us -->
+
+      <!-- blog -->
+      <div class="tab-pane fade" id="blog">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h3>Blog</h3>
+            <form>
+              <div class="form-group">
+                <label for="entry">Entry</label>
+                <input type="textbox" class="form-control" id="entry" autofocus required>
+              </div>
+              <button class="btn btn-primary" onclick="return false" id="submitEntry">Submit</button>
+            </form>
+            <br>
+            <ul class="list-group" id="entry_list">
+            </ul>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+      <!-- /blog -->
     </div>
     <!-- end of tab-content -->
 

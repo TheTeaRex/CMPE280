@@ -24,6 +24,8 @@ function create_table() {
 
     var query ='CREATE TABLE if not exists user_info (email text primary key, first text not null, last text not null)';
     db.run(query);
+    query ='CREATE TABLE if not exists blogs (time text primary key, entry text not null)';
+    db.run(query);
 	});
 
 	// db.close();
@@ -44,6 +46,31 @@ function insert_data(data, callback) {
     };
   });
 }
+
+function insert_blog(data, callback) {
+  console.log(data);
+  query = 'INSERT INTO blogs VALUES ('
+  query = query + '"' + data.time + '"' + ', ';
+  query = query + '"' + data.entry + '"' + ')';
+  console.log(query);
+  db.run(query, function(err) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null);
+    };
+  });
+}
+
+function get_blogs(callback) {
+  db.all('SELECT * FROM blogs', function(err, rows) {
+    var result = [];
+    rows.forEach(function (row) {
+      result.unshift({'entry': row.entry, 'time': row.time});
+    });
+    callback(result);
+  });
+};
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -70,7 +97,42 @@ app.post('/submit', function(req, res) {
       msg = 'Successfully recorded in database';
       code = 0;
     };
-    res.write(JSON.stringify({'result': {'message': msg, 'code': code}}));
+    res.write(JSON.stringify({'message': msg, 'code': code}));
+    res.end();
+  });
+});
+
+app.post('/blogSubmit', function(req, res) {
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'content-type',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+  });
+  insert_blog(req.body, function(err) {
+    var msg;
+    var code;
+    if (err) {
+      msg = 'Operation failed, please try again';
+      code = 255;
+    } else {
+      msg = 'Successfully recorded in database';
+      code = 0;
+    };
+    res.write(JSON.stringify({'message': msg, 'code': code}));
+    res.end();
+  });
+});
+
+app.get('/getBlogEntries', function(req, res) {
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'content-type',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+  });
+  get_blogs(function(result) {
+    res.write(JSON.stringify(result));
     res.end();
   });
 });
