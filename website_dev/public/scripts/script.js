@@ -66,6 +66,9 @@ var server_form_submission = 'http://localhost:3000/';
 
 $(document).ready(function() {
   $('[data-toggle="popover"]').popover();
+  $('#first_err').hide();
+  $('#last_err').hide();
+  $('#email_err').hide();
 
   // filling paragraphs
   $.each(paragraphs, function(key, value) {
@@ -112,6 +115,34 @@ $(document).ready(function() {
   });
 
   $('#submit').bind('click', function(event) {
+    var error = false;
+    if ($('#first').val().length == 0) {
+      $('#first_err').show();
+      error = true;
+    } else {
+      $('#first_err').hide();
+    };
+    if ($('#last').val().length == 0) {
+      $('#last_err').show();
+      error = true;
+    } else {
+      $('#last_err').hide();
+    };
+    if ($('#email').val().length == 0) {
+      $('#email_err').text('Cannot be empty!');
+      $('#email_err').show();
+      error = true;
+    } else if (!validateEmail($('#email').val())) {
+      $('#email_err').text('Invalid email!');
+      $('#email_err').show();
+      error = true;
+    } else {
+      $('#email_err').hide();
+    };
+    if (error) {
+      return false;
+    };
+
     var data = {
       'first': $('#first').val(),
       'last': $('#last').val(),
@@ -125,6 +156,9 @@ $(document).ready(function() {
       success: function(result) {
         console.log(result);
         $('#form_start').hide();
+        $('#first_err').hide();
+        $('#last_err').hide();
+        $('#email_err').hide();
         $('#form_result').show();
         $('#form_result').text(result.message);
         if (result.code == 0) {
@@ -214,3 +248,8 @@ function create_map(item) {
     infowindow.open(map, marker);
   });
 };
+
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}

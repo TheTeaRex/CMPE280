@@ -554,15 +554,15 @@
             <div id="form_start">
               <form>
                 <div class="form-group">
-                  <label for="first">First Name:</label>
+                  <label for="first">First Name:</label> <label class="text-danger" id="first_err">Cannot be empty!</label> 
                   <input type="text" class="form-control" id="first" placeholder="Enter First Name" autofocus required>
                 </div>
                 <div class="form-group">
-                  <label for="last">Last Name:</label>
+                  <label for="last">Last Name:</label> <label class="text-danger" id="last_err">Cannot be empty!</label>
                   <input type="text" class="form-control" id="last" placeholder="Enter Last Name" required>
                 </div>
                 <div class="form-group">
-                  <label for="first">Email:</label>
+                  <label for="first">Email:</label> <label class="text-danger" id="email_err">Cannot be empty!</label>
                   <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
                 </div>
                 <button class="btn btn-primary" onclick="return false" id="submit">Submit</button>
